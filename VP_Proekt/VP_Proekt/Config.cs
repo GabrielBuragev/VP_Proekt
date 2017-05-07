@@ -5,7 +5,7 @@ using System.Text;
 
 namespace VP_Proekt
 {
-    class Config
+    public class Config
     {
         public int width { get; set; }
         public int height { get; set; }

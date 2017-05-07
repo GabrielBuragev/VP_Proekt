@@ -28,10 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-<<<<<<< HEAD
-=======
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
->>>>>>> 8de30fee63678849fbc14f5c933c5b8b9fbed11e
             this.btnStart = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnAboutUs = new System.Windows.Forms.Button();
@@ -39,8 +36,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-<<<<<<< HEAD
-=======
             // pictureBox1
             // 
             this.pictureBox1.Image = global::VP_Proekt.Properties.Resources.brickimg;
@@ -51,7 +46,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
->>>>>>> 8de30fee63678849fbc14f5c933c5b8b9fbed11e
             // btnStart
             // 
             this.btnStart.BackColor = System.Drawing.SystemColors.Menu;

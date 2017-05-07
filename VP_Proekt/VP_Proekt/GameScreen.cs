@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Runtime.Serialization;
+using Newtonsoft.Json;
+
 
 namespace VP_Proekt
 {
@@ -16,7 +18,6 @@ namespace VP_Proekt
     {
         Level lvl;
         private string FileName;
-        LevelGenerator lvlGenerator;
         private float prevX = 0;
         private float prevY = 0;
         private bool firstStartForBall;
@@ -26,7 +27,7 @@ namespace VP_Proekt
         private int width;
         private int height;
         private bool proveriDupka;
-
+        public Config startupConfig;
         public GameScreen()
         {
             InitializeComponent();
@@ -42,6 +43,9 @@ namespace VP_Proekt
             proveriDupka = false;
             width = this.Width - (3 * leftX);
             height = this.Height - (int)(2.5 * topY);
+
+            startupConfig = new Config();
+            LoadMap();
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -61,8 +65,7 @@ namespace VP_Proekt
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            lvl.addBrick(new Point(0, 0), 20);
-            lvl.addBrick(new Point(50, 50), 20);
+
 
             Invalidate(true);
         }
@@ -138,21 +141,7 @@ namespace VP_Proekt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<Brick> bricks = new List<Brick>();
-            int width = 20;
-            int rows = Level.maxHeight / Brick.height;
-            int numberOfBriks = this.Width / width;
-            for (int i = 0; i < rows; i++)
-            {
-                for (int j = 0; j < numberOfBriks; j++)
-                {
-                    bricks.Add(new Brick(new Point(j * width, i * Brick.height), width));
-                    lvl.addBrick(new Point(j * width, i * Brick.height), width);
-
-                }
-            }
-            lvl.setBricks(bricks);
-            Invalidate(true);
+            generateMap();
         }
 
         private void GameScreen_MouseMove_1(object sender, MouseEventArgs e)
@@ -180,6 +169,95 @@ namespace VP_Proekt
         {
             firstStartForBall = false;
         }
-       
+        private void serializeConfig()
+        {
+            var FileName = "config.json";
+            JsonReader jReader;
+            JsonSerializer serializer = new JsonSerializer();
+            //using (StreamWriter sw = new StreamWriter(@"c:\json.txt"))
+            //    using (JsonWriter writer = new JsonTextWriter(sw))
+            //    {
+            //        serializer.Serialize(writer, product);
+            //        // {"ExpiryDate":new Date(1230375600000),"Price":0}
+            //}
+            using (StreamReader r = new StreamReader(@"..//..//..//config.json"))
+            {
+                string json = r.ReadToEnd();
+                startupConfig = JsonConvert.DeserializeObject<Config>(json);
+
+                Console.WriteLine(startupConfig.width + " " + startupConfig.height + " " + startupConfig.selectedGameDifficulty);
+            }
+        }
+        private void LoadMap()
+        {
+            FileName = "..//..//..//levels/level1.bb";
+            try
+            {
+                List<Brick> allBricks = new List<Brick>();
+                using (FileStream fileStream = new FileStream(FileName, FileMode.Open))
+                {
+
+                    IFormatter formater = new BinaryFormatter();
+                    allBricks = (List<Brick>)formater.Deserialize(fileStream);
+                }
+                lvl.bricks = allBricks;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not read file: " + FileName);
+                FileName = null;
+                return;
+            }
+            Invalidate(true);
+        }
+        private void generateMap()
+        {
+
+            string path = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
+            Console.WriteLine(path);
+            List<Brick> bricks = new List<Brick>();
+            int width = 80;
+            int rows = Level.maxHeight / Brick.height;
+            int numberOfBricks = this.Width / width;
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < numberOfBricks; j++)
+                {
+                    Random rand = new Random();
+                    Level.BrickType brType = Level.BrickType.NORMAL;
+                    int random = 0;
+                    if (startupConfig.num_levels < 2)
+                        random = rand.Next(0, 1);
+                    else if (startupConfig.num_levels >= 2 & startupConfig.num_levels < 5)
+                        random = rand.Next(0, 2);
+                    else if (startupConfig.num_levels >= 5)
+                        random = rand.Next(0, 3);
+
+                    if (random == 0)
+                        brType = Level.BrickType.NORMAL;
+                    else if (random == 1)
+                        brType = Level.BrickType.STONE;
+                    else if (random == 2)
+                        brType = Level.BrickType.DIAMOND;
+
+                    bricks.Add(new Brick(new Point(j * width, i * Brick.height), width, brType));
+
+                }
+            }
+
+            var FileName = "..//..//..//levels/level1.bb";
+            IFormatter serializeFormatter = new BinaryFormatter();
+
+            using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
+            {
+                IFormatter formatter = new BinaryFormatter();
+                formatter.Serialize(fileStream, bricks);
+            }
+
+            startupConfig.num_levels++;
+            serializeConfig();
+
+
+        }
     }
 }

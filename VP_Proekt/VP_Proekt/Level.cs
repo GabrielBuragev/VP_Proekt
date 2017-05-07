@@ -9,6 +9,13 @@ namespace VP_Proekt
     [Serializable]
     class Level
     {
+
+        public enum BrickType
+        {
+            NORMAL,
+            STONE,
+            DIAMOND
+        }
         public static int maxHeight = 200;
 
         public List<Brick> bricks { get; set; }
@@ -24,8 +31,9 @@ namespace VP_Proekt
         public Level(List<Brick> listBricks) {
             bricks = listBricks;
         }
-        public void addBrick(Point start, int width) {
-            Brick br = new Brick(start, width);
+        public void addBrick(Point start, int width, BrickType brType)
+        {
+            Brick br = new Brick(start, width, brType);
             bricks.Add(br);
         }
         public void DrawBricks(Graphics g) {
@@ -42,6 +50,18 @@ namespace VP_Proekt
         //Temporary function
         public void setBricks(List<Brick> bricks) {
             this.bricks = bricks;
+        }
+        public BrickType getBrickType(int index)
+        {
+            if (index == 0)
+                return BrickType.NORMAL;
+            else if (index == 1)
+                return BrickType.STONE;
+            else if (index == 2)
+                return BrickType.DIAMOND;
+            else
+                return BrickType.NORMAL;
+
         }
     }
 }

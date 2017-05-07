@@ -33,9 +33,18 @@ C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_P
 C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.StartingScreen.resources
 =======
 C:\Users\david\Desktop\Vp Proekt GIt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.StartingScreen.resources
-<<<<<<< HEAD
 D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.exe
 D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.pdb
-=======
 >>>>>>> 8de30fee63678849fbc14f5c933c5b8b9fbed11e
 >>>>>>> b73089cec8bd9d2d5c467847f8d16f16fffab6ab
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csprojResolveAssemblyReference.cache
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.GameScreen.resources
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Properties.Resources.resources
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.StartingScreen.resources
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csproj.GenerateResource.Cache
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.LevelSelectScreen.resources
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\VP_Proekt.exe
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\VP_Proekt.pdb
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.dll
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.pdb
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.xml
