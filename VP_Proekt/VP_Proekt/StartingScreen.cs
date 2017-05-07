@@ -15,5 +15,21 @@ namespace VP_Proekt
         {
             InitializeComponent();
         }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            Form gameSc = new GameScreen();
+            gameSc.Show();
+        }
+
+        private void btnSettings_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAboutUs_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Овој проект го изработија Габриел Бурагев, Давид Стојановски, Симон Стојановски", "AboutUs");
+        }
     }
 }
