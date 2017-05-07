@@ -26,7 +26,11 @@ C:\Users\david\Desktop\Vp Proekt GIt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug
 C:\Users\david\Desktop\Vp Proekt GIt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Properties.Resources.resources
 C:\Users\david\Desktop\Vp Proekt GIt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csproj.GenerateResource.Cache
 C:\Users\david\Desktop\Vp Proekt GIt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csprojResolveAssemblyReference.cache
+<<<<<<< HEAD
 C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csprojResolveAssemblyReference.cache
 C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.GameScreen.resources
 C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.LevelSelectScreen.resources
 C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.StartingScreen.resources
+=======
+C:\Users\david\Desktop\Vp Proekt GIt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.StartingScreen.resources
+>>>>>>> 8de30fee63678849fbc14f5c933c5b8b9fbed11e

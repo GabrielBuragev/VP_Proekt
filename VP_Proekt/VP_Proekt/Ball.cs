@@ -12,7 +12,7 @@ namespace VP_Proekt
         private static readonly int RADIUS = 20;
 
         public Point Center { get; set; }
-
+        public bool isDead;
         public Color Color { get; set; }
 
         public double Velocity { get; set; }
@@ -28,7 +28,7 @@ namespace VP_Proekt
             Center = center;
             Color = color;
             //IsColided = false;
-            Velocity = 10;
+            Velocity = 16;
             Random r = new Random();
             Angle = r.NextDouble() * 2 * Math.PI;
             velocityX = (float)(Math.Cos(Angle) * Velocity);
@@ -48,10 +48,16 @@ namespace VP_Proekt
         //    return d <= (2 * RADIUS) * (2 * RADIUS);
         //}
 
-        public void Move(int left, int top, int width, int height)
+        public void Move(int left, int top, int width, int height, bool proveriDupka)
         {
             float nextX = Center.X + velocityX;
             float nextY = Center.Y + velocityY;
+            if (nextY + RADIUS >= height)
+            {
+                
+                proveriDupka = true;
+            }
+            
             if (nextX - RADIUS <= left || nextX + RADIUS >= width + left)
             {
                 velocityX = -velocityX;

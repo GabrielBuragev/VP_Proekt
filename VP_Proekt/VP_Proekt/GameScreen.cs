@@ -20,14 +20,45 @@ namespace VP_Proekt
         private float prevX = 0;
         private float prevY = 0;
         private bool firstStartForBall;
+        private Timer timer;
+        private int leftX;
+        private int topY;
+        private int width;
+        private int height;
+        private bool proveriDupka;
+
         public GameScreen()
         {
             InitializeComponent();
             DoubleBuffered = true;
             firstStartForBall = true;
             lvl = new Level(this);
+            timer = new Timer();
+            timer.Interval = 50;
+            timer.Tick += new EventHandler(timer_Tick);
+            timer.Start();
+            leftX = 0;
+            topY = 0;
+            proveriDupka = false;
+            width = this.Width - (3 * leftX);
+            height = this.Height - (int)(2.5 * topY);
         }
 
+        void timer_Tick(object sender, EventArgs e)
+        {
+            if (firstStartForBall == false)
+            {
+                
+                lvl.ball.Move(leftX, topY, width, height, proveriDupka);
+                //ballsDoc.CheckColisions();
+                //i ovde isto proverka dali treba kopceto da se izgubi
+                if (proveriDupka == true)
+                {
+                    lvl.ball.isDead = true;
+                }
+                Invalidate(true);
+            }
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             lvl.addBrick(new Point(0, 0), 20);
@@ -39,8 +70,11 @@ namespace VP_Proekt
         private void Form1_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.Clear(Color.White);
-
             lvl.DrawBricks(e.Graphics);
+           // Pen pen = new Pen(Color.Black, 3);
+           // e.Graphics.DrawRectangle(pen, leftX, topY, width, height);
+            //pen.Dispose();
+            
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)

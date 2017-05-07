@@ -101,7 +101,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Content Include="brickbgimg.jpg" />
+=======
+>>>>>>> 8de30fee63678849fbc14f5c933c5b8b9fbed11e
     <Content Include="brickimg.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
