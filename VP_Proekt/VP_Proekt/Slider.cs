@@ -13,7 +13,7 @@ namespace VP_Proekt
         public int width { get; set; }
         public static int height = 20; 
         public Color fillColor { get; set; }
-        public Slider(int width,Color fillColor,Form1 form) {
+        public Slider(int width,Color fillColor,GameScreen form) {
             this.width = width;
             this.fillColor = fillColor;
             Size formSize = form.getSize();

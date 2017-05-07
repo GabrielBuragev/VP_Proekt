@@ -12,3 +12,10 @@ C:\Users\Simon\documents\visual studio 2010\Projects\VP_Proekt\VP_Proekt\bin\Deb
 C:\Users\Simon\documents\visual studio 2010\Projects\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Form1.resources
 C:\Users\Simon\documents\visual studio 2010\Projects\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Properties.Resources.resources
 C:\Users\Simon\documents\visual studio 2010\Projects\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csproj.GenerateResource.Cache
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.exe
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.pdb
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\VP_Proekt.exe
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\VP_Proekt.pdb
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Form1.resources
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Properties.Resources.resources
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csproj.GenerateResource.Cache

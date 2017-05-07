@@ -9,9 +9,9 @@ namespace VP_Proekt
     class LevelGenerator
     {
         List<Brick> bricks;
-        Form1 form;
+        GameScreen form;
         int width = 50;
-        public LevelGenerator(Form1 form, Level lvl)
+        public LevelGenerator(GameScreen form, Level lvl)
         {
             this.form = form;
             int rows = Level.maxHeight / Brick.height;

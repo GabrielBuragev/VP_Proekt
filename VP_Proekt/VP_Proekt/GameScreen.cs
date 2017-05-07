@@ -12,12 +12,12 @@ using System.Runtime.Serialization;
 
 namespace VP_Proekt
 {
-    public partial class Form1 : Form
+    public partial class GameScreen : Form
     {
         Level lvl;
         private string FileName;
         LevelGenerator lvlGenerator;
-        public Form1()
+        public GameScreen()
         {
             InitializeComponent();
             DoubleBuffered = true;

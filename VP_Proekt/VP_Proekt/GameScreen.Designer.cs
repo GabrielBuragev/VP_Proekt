@@ -1,6 +1,6 @@
 ﻿namespace VP_Proekt
 {
-    partial class Form1
+    partial class GameScreen
     {
         /// <summary>
         /// Required designer variable.

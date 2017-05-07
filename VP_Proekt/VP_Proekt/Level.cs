@@ -14,8 +14,8 @@ namespace VP_Proekt
         public List<Brick> bricks { get; set; }
         public Slider slider { get; set; }
         public Ball ball { get; set; }
-        public Form1 form;
-        public Level(Form1 form) {
+        public GameScreen form;
+        public Level(GameScreen form) {
             this.form = form;
             bricks = new List<Brick>();
             slider = new Slider(200,Color.Black,form);
