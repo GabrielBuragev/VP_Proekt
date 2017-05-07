@@ -18,13 +18,15 @@ namespace VP_Proekt
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Form gameSc = new GameScreen();
-            gameSc.Show();
+            Form lvlSelecet = new LevelSelectScreen();
+            this.Hide();
+            lvlSelecet.Show();
         }
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-
+            Form lvlSelecet = new LevelSelectScreen();
+            lvlSelecet.Show();
         }
 
         private void btnAboutUs_Click(object sender, EventArgs e)
