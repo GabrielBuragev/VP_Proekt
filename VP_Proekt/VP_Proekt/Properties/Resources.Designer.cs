@@ -63,6 +63,16 @@ namespace VP_Proekt.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap brickbgimg {
+            get {
+                object obj = ResourceManager.GetObject("brickbgimg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap brickimg {
             get {
                 object obj = ResourceManager.GetObject("brickimg", resourceCulture);
