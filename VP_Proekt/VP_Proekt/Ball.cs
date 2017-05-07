@@ -62,5 +62,10 @@ namespace VP_Proekt
             }
             Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
         }
+
+        public void MoveWithSlider(float dx)
+        {
+            Center = new Point((int)dx, Center.Y);
+        }
     }
 }

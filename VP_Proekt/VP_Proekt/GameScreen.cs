@@ -19,10 +19,12 @@ namespace VP_Proekt
         LevelGenerator lvlGenerator;
         private float prevX = 0;
         private float prevY = 0;
+        private bool firstStartForBall;
         public GameScreen()
         {
             InitializeComponent();
             DoubleBuffered = true;
+            firstStartForBall = true;
             lvl = new Level(this);
         }
 
@@ -119,15 +121,30 @@ namespace VP_Proekt
             Invalidate(true);
         }
 
-
-        private void GameScreen_MouseMove(object sender, MouseEventArgs e)
+        private void GameScreen_MouseMove_1(object sender, MouseEventArgs e)
         {
             if (e.X > 0 && e.X <= 800 - lvl.slider.width)
             {
-                float dx = e.X;
-                lvl.slider.Move(dx);
-                Invalidate(true);
+                if (firstStartForBall)
+                {
+
+                    float dx = e.X;
+                    lvl.slider.Move(dx);
+                    lvl.ball.MoveWithSlider(dx + lvl.slider.width/2);
+                    Invalidate(true);
+                }
+                else
+                {
+                    float dx = e.X;
+                    lvl.slider.Move(dx);
+                    Invalidate(true);
+                }
             }
+        }
+
+        private void GameScreen_MouseClick(object sender, MouseEventArgs e)
+        {
+            firstStartForBall = false;
         }
        
     }
