@@ -27,5 +27,9 @@ namespace VP_Proekt
             g.FillRectangle(brush,start.X,start.Y,width,height);
             brush.Dispose();
         }
+        public void Move(float dx)
+        {
+            start = new Point((int)dx, start.Y);
+        }
     }
 }

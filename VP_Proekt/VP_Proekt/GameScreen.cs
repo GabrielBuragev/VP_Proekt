@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +17,8 @@ namespace VP_Proekt
         Level lvl;
         private string FileName;
         LevelGenerator lvlGenerator;
+        private float prevX = 0;
+        private float prevY = 0;
         public GameScreen()
         {
             InitializeComponent();
@@ -116,5 +118,17 @@ namespace VP_Proekt
             lvl.setBricks(bricks);
             Invalidate(true);
         }
+
+
+        private void GameScreen_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.X > 0 && e.X <= 800 - lvl.slider.width)
+            {
+                float dx = e.X;
+                lvl.slider.Move(dx);
+                Invalidate(true);
+            }
+        }
+       
     }
 }

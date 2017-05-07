@@ -35,6 +35,7 @@ namespace VP_Proekt
                 br.Draw(g);
             }
         }
+        
         //Temporary function
         public void setBricks(List<Brick> bricks) {
             this.bricks = bricks;
