@@ -22,6 +22,7 @@ namespace VP_Proekt
         public Slider slider { get; set; }
         public Ball ball { get; set; }
         public GameScreen form;
+        public int lives = 3;
         public Level(GameScreen form) {
             this.form = form;
             bricks = new List<Brick>();
@@ -62,6 +63,10 @@ namespace VP_Proekt
             else
                 return BrickType.NORMAL;
 
+        }
+        public void resetComponents() {
+            slider = new Slider(200, Color.Black, form);
+            ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
         }
     }
 }

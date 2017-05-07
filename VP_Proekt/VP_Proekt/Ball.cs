@@ -12,7 +12,8 @@ namespace VP_Proekt
         private static readonly int RADIUS = 20;
 
         public Point Center { get; set; }
-        public bool isDead;
+        public bool isDead { get; set; }
+        public bool proveriDupka { get; set; }
         public Color Color { get; set; }
 
         public double Velocity { get; set; }
@@ -21,6 +22,8 @@ namespace VP_Proekt
         private float velocityX;
         private float velocityY;
 
+  
+
         //public bool IsColided { get; set; }
 
         public Ball(Point center, Color color)
@@ -28,7 +31,7 @@ namespace VP_Proekt
             Center = center;
             Color = color;
             //IsColided = false;
-            Velocity = 16;
+            Velocity = 50;
             Random r = new Random();
             Angle = r.NextDouble() * 2 * Math.PI;
             velocityX = (float)(Math.Cos(Angle) * Velocity);
@@ -42,20 +45,28 @@ namespace VP_Proekt
             brush.Dispose();
         }
 
-        //public bool IsColiding(Ball ball)
-        //{
-        //    double d = (Center.X - ball.Center.X) * (Center.X - ball.Center.X) + (Center.Y - ball.Center.Y) * (Center.Y - ball.Center.Y);
-        //    return d <= (2 * RADIUS) * (2 * RADIUS);
-        //}
+        public void IsColiding(Slider slider)
+        {
+            Point leftPoint = slider.start;
+            Point rightPoint = new Point(slider.start.X + slider.width, slider.start.Y);
 
-        public void Move(int left, int top, int width, int height, bool proveriDupka)
+            if ((Center.X + RADIUS / 2) >= leftPoint.X && (Center.X + RADIUS / 2) <= rightPoint.X && (Center.Y + RADIUS /2) >= leftPoint.Y)
+            {
+                velocityY = -velocityY;
+                Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
+            }
+            //double d = (Center.X - slider.start.X) * (Center.X - slider.start.X) + (Center.Y - slider.start.Y) * (Center.Y - slider.start.Y);
+            //return d <= (2 * RADIUS) * (2 * RADIUS);
+        }
+
+        public void Move(int left, int top, int width, int height)
         {
             float nextX = Center.X + velocityX;
             float nextY = Center.Y + velocityY;
             if (nextY + RADIUS >= height)
             {
-                
-                proveriDupka = true;
+                isDead = true;
+                return;
             }
             
             if (nextX - RADIUS <= left || nextX + RADIUS >= width + left)

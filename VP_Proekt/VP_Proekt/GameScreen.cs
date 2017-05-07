@@ -37,9 +37,8 @@ namespace VP_Proekt
             timer = new Timer();
             timer.Interval = 50;
             timer.Tick += new EventHandler(timer_Tick);
-            timer.Start();
-            leftX = 0;
-            topY = 0;
+            leftX = 1;
+            topY = 1;
             proveriDupka = false;
             width = this.Width - (3 * leftX);
             height = this.Height - (int)(2.5 * topY);
@@ -50,23 +49,25 @@ namespace VP_Proekt
 
         void timer_Tick(object sender, EventArgs e)
         {
-            if (firstStartForBall == false)
+            if (!lvl.ball.isDead)
             {
-                
-                lvl.ball.Move(leftX, topY, width, height, proveriDupka);
-                //ballsDoc.CheckColisions();
-                //i ovde isto proverka dali treba kopceto da se izgubi
-                if (proveriDupka == true)
+                if (firstStartForBall == false)
                 {
-                    lvl.ball.isDead = true;
-                }
-                Invalidate(true);
+                    lvl.ball.Move(leftX, topY, width, height);
+                    lvl.ball.IsColiding(lvl.slider);
+                    
+                    //ballsDoc.CheckColisions();
+                 }
             }
+            else {
+                timer.Stop();
+                lvl.resetComponents();
+                firstStartForBall = true;
+            }
+            Invalidate(true);
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-
-
             Invalidate(true);
         }
 
@@ -168,6 +169,7 @@ namespace VP_Proekt
         private void GameScreen_MouseClick(object sender, MouseEventArgs e)
         {
             firstStartForBall = false;
+            timer.Start();
         }
         private void serializeConfig()
         {
