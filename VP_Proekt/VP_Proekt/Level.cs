@@ -29,7 +29,10 @@ namespace VP_Proekt
             bricks.Add(br);
         }
         public void DrawBricks(Graphics g) {
-            ball.Draw(g);
+            if (!ball.isDead)
+            {
+                ball.Draw(g);
+            }
             slider.Draw(g);
             foreach (Brick br in bricks) {
                 br.Draw(g);
