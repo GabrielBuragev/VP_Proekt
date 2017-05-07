@@ -51,7 +51,7 @@ namespace VP_Proekt
                 
                 lvl.ball.Move(leftX, topY, width, height, proveriDupka);
                 //ballsDoc.CheckColisions();
-                
+                //i ovde isto proverka dali treba kopceto da se izgubi
                 if (proveriDupka == true)
                 {
                     lvl.ball.isDead = true;
