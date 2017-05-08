@@ -7,7 +7,7 @@ using System.Drawing;
 namespace VP_Proekt
 {
     [Serializable]
-    class Brick
+    public class Brick
     {
 
         public Level.BrickType brickType;

@@ -7,7 +7,7 @@ using System.Drawing;
 namespace VP_Proekt
 {   
     [Serializable]
-    class Level
+    public class Level
     {
 
         public enum BrickType
@@ -29,8 +29,12 @@ namespace VP_Proekt
             slider = new Slider(200,Color.Black,form);
             ball = new Ball(new Point(slider.start.X + slider.width/2,slider.start.Y-23),Color.Black);
         }
-        public Level(List<Brick> listBricks) {
+        public Level(List<Brick> listBricks, GameScreen form)
+        {
+            this.form = form;
             bricks = listBricks;
+            slider = new Slider(200, Color.Black, form);
+            ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
         }
         public void addBrick(Point start, int width, BrickType brType)
         {
@@ -47,9 +51,24 @@ namespace VP_Proekt
                 br.Draw(g);
             }
         }
-        
+        public void BallColidingWithBrick()
+        {
+            for (int i = 0; i < bricks.Count; i++)
+            {
+                Point xy = bricks[i].xy;
+                if ((ball.Center.X) >= xy.X && (ball.Center.X) <= (xy.X + bricks[i].width)
+                    && (ball.Center.Y - Ball.RADIUS) <= xy.Y + Brick.height)
+                {
+                    ball.velocityY = -ball.velocityY;
+                    bricks.Remove(bricks[i]);
+                    Console.WriteLine(i);
+                    //ball.Center = new Point((int)(ball.Center.X + ball.velocityX), (int)(ball.Center.Y + ball.velocityY));
+                }
+            }
+        }
         //Temporary function
         public void setBricks(List<Brick> bricks) {
+            
             this.bricks = bricks;
         }
         public BrickType getBrickType(int index)

@@ -49,8 +49,6 @@
             this.Controls.Add(this.button1);
             this.Name = "GameScreen";
             this.Text = "Form1";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameScreen_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GameScreen_MouseMove_1);

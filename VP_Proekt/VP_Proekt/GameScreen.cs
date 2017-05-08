@@ -28,6 +28,7 @@ namespace VP_Proekt
         private int height;
         private bool proveriDupka;
         public Config startupConfig;
+        string confFilePath = "..//..//..//config.json";
         public GameScreen()
         {
             InitializeComponent();
@@ -43,8 +44,9 @@ namespace VP_Proekt
             width = this.Width - (3 * leftX);
             height = this.Height - (int)(2.5 * topY);
 
-            startupConfig = new Config();
+            startupConfig = Config.deserializeConfig(confFilePath);
             LoadMap();
+            
         }
 
         void timer_Tick(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace VP_Proekt
                 {
                     lvl.ball.Move(leftX, topY, width, height);
                     lvl.ball.IsColiding(lvl.slider);
-                    
+                    lvl.BallColidingWithBrick();
                     //ballsDoc.CheckColisions();
                  }
             }
@@ -79,11 +81,6 @@ namespace VP_Proekt
            // e.Graphics.DrawRectangle(pen, leftX, topY, width, height);
             //pen.Dispose();
             
-        }
-
-        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //SaveFile();
         }
 
         private void SaveFile()
@@ -171,28 +168,10 @@ namespace VP_Proekt
             firstStartForBall = false;
             timer.Start();
         }
-        private void serializeConfig()
-        {
-            var FileName = "config.json";
-            JsonReader jReader;
-            JsonSerializer serializer = new JsonSerializer();
-            //using (StreamWriter sw = new StreamWriter(@"c:\json.txt"))
-            //    using (JsonWriter writer = new JsonTextWriter(sw))
-            //    {
-            //        serializer.Serialize(writer, product);
-            //        // {"ExpiryDate":new Date(1230375600000),"Price":0}
-            //}
-            using (StreamReader r = new StreamReader(@"..//..//..//config.json"))
-            {
-                string json = r.ReadToEnd();
-                startupConfig = JsonConvert.DeserializeObject<Config>(json);
-
-                Console.WriteLine(startupConfig.width + " " + startupConfig.height + " " + startupConfig.selectedGameDifficulty);
-            }
-        }
+        
         private void LoadMap()
         {
-            FileName = "..//..//..//levels/level1.bb";
+            FileName = "..//..//..//levels/level_1.bb";
             try
             {
                 List<Brick> allBricks = new List<Brick>();
@@ -214,9 +193,8 @@ namespace VP_Proekt
         }
         private void generateMap()
         {
-
             string path = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            Console.WriteLine(path);
+            //Console.WriteLine(path);
             List<Brick> bricks = new List<Brick>();
             int width = 80;
             int rows = Level.maxHeight / Brick.height;
@@ -247,7 +225,7 @@ namespace VP_Proekt
                 }
             }
 
-            var FileName = "..//..//..//levels/level1.bb";
+            var FileName = "..//..//..//levels/level_"+startupConfig.num_levels+".bb";
             IFormatter serializeFormatter = new BinaryFormatter();
 
             using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
@@ -257,7 +235,9 @@ namespace VP_Proekt
             }
 
             startupConfig.num_levels++;
-            serializeConfig();
+            startupConfig.levels.Add(new Level(bricks,this));
+            Console.WriteLine(startupConfig.num_levels);
+            Config.serializeConfig(startupConfig,confFilePath);
 
 
         }

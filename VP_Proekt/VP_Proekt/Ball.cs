@@ -7,9 +7,9 @@ using System.Drawing;
 namespace VP_Proekt
 {
     [Serializable]
-    class Ball
+    public class Ball
     {
-        private static readonly int RADIUS = 20;
+        public static readonly int RADIUS = 20;
 
         public Point Center { get; set; }
         public bool isDead { get; set; }
@@ -19,8 +19,8 @@ namespace VP_Proekt
         public double Velocity { get; set; }
         public double Angle { get; set; }
 
-        private float velocityX;
-        private float velocityY;
+        public float velocityX { get; set; }
+        public float velocityY { get; set; }
 
   
 
@@ -31,7 +31,7 @@ namespace VP_Proekt
             Center = center;
             Color = color;
             //IsColided = false;
-            Velocity = 50;
+            Velocity = 20;
             Random r = new Random();
             Angle = r.NextDouble() * 2 * Math.PI;
             velocityX = (float)(Math.Cos(Angle) * Velocity);

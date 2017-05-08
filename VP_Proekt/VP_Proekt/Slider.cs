@@ -6,7 +6,8 @@ using System.Drawing;
 
 namespace VP_Proekt
 {
-    class Slider
+    [Serializable]
+    public class Slider
     {
  
         public Point start { get; set; }
