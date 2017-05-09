@@ -86,56 +86,6 @@ namespace VP_Proekt
             //pen.Dispose();
             
         }
-
-        private void SaveFile()
-        {
-            if (FileName == null)
-            {
-                SaveFileDialog sfd = new SaveFileDialog();
-                sfd.Title = "Save lines doc";
-                if (sfd.ShowDialog() == DialogResult.OK)
-                {
-                    FileName = sfd.FileName;
-                }
-
-
-            }
-            if (FileName != null)
-            {
-                using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
-                {
-                    IFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(fileStream, lvl);
-                }
-            }
-
-        }
-        private void OpenFile()
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Lines doc file (*.br)|*.br";
-            openFileDialog.Title = "Open bricks file";
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
-            {
-                FileName = openFileDialog.FileName;
-                try
-                {
-                    using (FileStream fileStream = new FileStream(FileName, FileMode.Open))
-                    {
-                        IFormatter formater = new BinaryFormatter();
-                        lvl = (Level)formater.Deserialize(fileStream);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Could not read file: " + FileName);
-                    FileName = null;
-                    return;
-                }
-                Invalidate(true);
-            }
-        }
-
         public Size getSize()
         {
             return new Size(this.Width, this.Height);
@@ -175,7 +125,7 @@ namespace VP_Proekt
         
         private void LoadMap()
         {
-            FileName = "..//..//..//levels/level_4.bb";
+            FileName = "..//..//..//levels/level_8.bb";
             try
             {
                 List<Brick> allBricks = new List<Brick>();
