@@ -14,12 +14,12 @@ namespace VP_Proekt
         public int width { get; set; }
         public static int height = 20; 
         public Color fillColor { get; set; }
-        public Slider(int width,Color fillColor,GameScreen form) {
+        public Slider(int width,Color fillColor) {
             this.width = width;
             this.fillColor = fillColor;
-            Size formSize = form.getSize();
 
-            int sliderX = (formSize.Width/2) - (width/2) ;
+            Size formSize = GameScreen.formSize;
+            int sliderX = (formSize.Width / 2) - (width / 2);
             int sliderY = formSize.Height - height - 45;
             start = new Point(sliderX,sliderY);
         }

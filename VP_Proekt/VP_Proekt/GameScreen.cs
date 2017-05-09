@@ -29,12 +29,16 @@ namespace VP_Proekt
         private bool proveriDupka;
         public Config startupConfig;
         string confFilePath = "..//..//..//config.json";
+        public static Size formSize;
         public GameScreen()
         {
+            
             InitializeComponent();
+
+            formSize = this.getSize();
             DoubleBuffered = true;
             firstStartForBall = true;
-            lvl = new Level(this);
+            lvl = new Level();
             timer = new Timer();
             timer.Interval = 50;
             timer.Tick += new EventHandler(timer_Tick);
@@ -43,7 +47,7 @@ namespace VP_Proekt
             proveriDupka = false;
             width = this.Width - (3 * leftX);
             height = this.Height - (int)(2.5 * topY);
-
+            
             startupConfig = Config.deserializeConfig(confFilePath);
             LoadMap();
             
@@ -171,7 +175,7 @@ namespace VP_Proekt
         
         private void LoadMap()
         {
-            FileName = "..//..//..//levels/level_1.bb";
+            FileName = "..//..//..//levels/level_4.bb";
             try
             {
                 List<Brick> allBricks = new List<Brick>();
@@ -199,19 +203,29 @@ namespace VP_Proekt
             int width = 80;
             int rows = Level.maxHeight / Brick.height;
             int numberOfBricks = this.Width / width;
+            Random rand = new Random();
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < numberOfBricks; j++)
                 {
-                    Random rand = new Random();
+                    
                     Level.BrickType brType = Level.BrickType.NORMAL;
                     int random = 0;
                     if (startupConfig.num_levels < 2)
+                    {
                         random = rand.Next(0, 1);
+                        Console.WriteLine("Easy: " + random);
+                    }
                     else if (startupConfig.num_levels >= 2 & startupConfig.num_levels < 5)
+                    {
                         random = rand.Next(0, 2);
+                        Console.WriteLine("Medium: " + random);
+                    }
                     else if (startupConfig.num_levels >= 5)
+                    {
                         random = rand.Next(0, 3);
+                        Console.WriteLine("Hard: " + random);
+                    }
 
                     if (random == 0)
                         brType = Level.BrickType.NORMAL;
@@ -235,7 +249,7 @@ namespace VP_Proekt
             }
 
             startupConfig.num_levels++;
-            startupConfig.levels.Add(new Level(bricks,this));
+            startupConfig.levels.Add(new Level(bricks));
             Console.WriteLine(startupConfig.num_levels);
             Config.serializeConfig(startupConfig,confFilePath);
 

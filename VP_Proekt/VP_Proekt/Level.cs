@@ -21,19 +21,16 @@ namespace VP_Proekt
         public List<Brick> bricks { get; set; }
         public Slider slider { get; set; }
         public Ball ball { get; set; }
-        public GameScreen form;
         public int lives = 3;
-        public Level(GameScreen form) {
-            this.form = form;
+        public Level() {
             bricks = new List<Brick>();
-            slider = new Slider(200,Color.Black,form);
+            slider = new Slider(200,Color.Black);
             ball = new Ball(new Point(slider.start.X + slider.width/2,slider.start.Y-23),Color.Black);
         }
-        public Level(List<Brick> listBricks, GameScreen form)
+        public Level(List<Brick> listBricks)
         {
-            this.form = form;
             bricks = listBricks;
-            slider = new Slider(200, Color.Black, form);
+            slider = new Slider(200, Color.Black);
             ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
         }
         public void addBrick(Point start, int width, BrickType brType)
@@ -84,7 +81,7 @@ namespace VP_Proekt
 
         }
         public void resetComponents() {
-            slider = new Slider(200, Color.Black, form);
+            slider = new Slider(200, Color.Black);
             ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
         }
     }
