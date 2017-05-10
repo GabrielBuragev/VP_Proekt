@@ -63,7 +63,7 @@ namespace VP_Proekt
 
                 //velocityX = (int)(Velocity * ((sliderCollidingX / (slider.width * 0.25))));
                 Random rand = new Random();
-                Angle =  1 * 2 * (Math.PI);
+                //Angle =  1 * 2 * (Math.PI);
                 //Console.WriteLine(Angle);
                 velocityY = -velocityY;
                     velocityX = -(float)(Math.Cos(Angle) * Velocity);

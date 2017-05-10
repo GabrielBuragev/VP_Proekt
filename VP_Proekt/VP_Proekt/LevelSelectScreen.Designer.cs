@@ -51,6 +51,7 @@
             this.FLLevels.Name = "FLLevels";
             this.FLLevels.Size = new System.Drawing.Size(279, 215);
             this.FLLevels.TabIndex = 5;
+            this.FLLevels.Paint += new System.Windows.Forms.PaintEventHandler(this.FLLevels_Paint);
             // 
             // btnBack
             // 

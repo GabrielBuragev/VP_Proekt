@@ -30,8 +30,10 @@ namespace VP_Proekt
         {
             Form lvlSelecet = new LevelSelectScreen(this, startupConfig);
             lvlSelecet.FormClosing += delegate { this.Close(); };
+            Form settings = new Settings(this,startupConfig);
+            settings.FormClosing += delegate { this.Close(); };
             hideForm();
-            lvlSelecet.Show();
+            settings.Show();
         }
 
         private void btnAboutUs_Click(object sender, EventArgs e)

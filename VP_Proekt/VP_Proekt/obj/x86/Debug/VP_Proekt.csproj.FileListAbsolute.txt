@@ -48,3 +48,8 @@ D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\VP
 D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.dll
 D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.pdb
 D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Settings.resources
+D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Settings.resources
