@@ -23,6 +23,7 @@ namespace VP_Proekt
             HARD
         };
         public GameDifficulty selectedGameDifficulty;
+
         public Config(int width = 800, int height = 600,int num_levels = 0, GameDifficulty GameDifficulty = GameDifficulty.EASY)
         {
             this.width = width;

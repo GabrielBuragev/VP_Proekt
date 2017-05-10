@@ -23,10 +23,11 @@ namespace VP_Proekt
         public int lives = 3;
         public int id { get; set; }
         public String filePathName { get; set; }
-        public Level() {
-            bricks = new List<Brick>();
-            slider = new Slider(200,Color.Black);
-            ball = new Ball(new Point(slider.start.X + slider.width/2,slider.start.Y-23),Color.Black);
+        public Level()
+        {
+            bricks = null;
+            slider = null;
+            ball = null;
         }
         public Level(List<Brick> listBricks)
         {
@@ -66,7 +67,6 @@ namespace VP_Proekt
                 {
                     ball.velocityY = -ball.velocityY;
                     bricks.Remove(bricks[i]);
-                    Console.WriteLine(i);
                     //ball.Center = new Point((int)(ball.Center.X + ball.velocityX), (int)(ball.Center.Y + ball.velocityY));
                 }
             }

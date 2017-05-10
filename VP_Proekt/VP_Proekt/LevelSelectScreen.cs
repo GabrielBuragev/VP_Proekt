@@ -16,11 +16,11 @@ namespace VP_Proekt
     {
         Config startupConfig;
         StartingScreen ss;
-        public LevelSelectScreen(StartingScreen ss)
+        public LevelSelectScreen(StartingScreen ss,Config startupConfig)
         {
             InitializeComponent();
             this.ss = ss;
-            startupConfig = Config.deserializeConfig(Config.confFilePath);
+            this.startupConfig = startupConfig;
             // Dynamicly append the buttons according to the number of levels there are.
             for (int i = 1; i <= startupConfig.num_levels; i++)
             {

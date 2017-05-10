@@ -11,14 +11,16 @@ namespace VP_Proekt
 {
     public partial class StartingScreen : Form
     {
+        Config startupConfig;
         public StartingScreen()
         {
             InitializeComponent();
+            startupConfig = Config.deserializeConfig(Config.confFilePath);
         }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            Form lvlSelecet = new LevelSelectScreen(this);
+            Form lvlSelecet = new LevelSelectScreen(this,startupConfig);
             lvlSelecet.FormClosing += delegate { this.Close(); };
             hideForm();
             lvlSelecet.Show();
@@ -26,7 +28,7 @@ namespace VP_Proekt
 
         private void btnSettings_Click(object sender, EventArgs e)
         {
-            Form lvlSelecet = new LevelSelectScreen(this);
+            Form lvlSelecet = new LevelSelectScreen(this, startupConfig);
             lvlSelecet.FormClosing += delegate { this.Close(); };
             hideForm();
             lvlSelecet.Show();

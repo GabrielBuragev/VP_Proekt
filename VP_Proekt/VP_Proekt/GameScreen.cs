@@ -144,17 +144,14 @@ namespace VP_Proekt
                     if (startupConfig.num_levels < 2)
                     {
                         random = rand.Next(0, 1);
-                        Console.WriteLine("Easy: " + random);
                     }
                     else if (startupConfig.num_levels >= 2 & startupConfig.num_levels < 5)
                     {
                         random = rand.Next(0, 2);
-                        Console.WriteLine("Medium: " + random);
                     }
                     else if (startupConfig.num_levels >= 5)
                     {
                         random = rand.Next(0, 3);
-                        Console.WriteLine("Hard: " + random);
                     }
 
                     if (random == 0)
@@ -180,7 +177,6 @@ namespace VP_Proekt
             }
 
             startupConfig.levels.Add(new Level(startupConfig.num_levels,FileName));
-            Console.WriteLine(startupConfig.num_levels);
             Config.serializeConfig(startupConfig,Config.confFilePath);
 
 
