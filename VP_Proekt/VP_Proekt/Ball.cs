@@ -62,8 +62,8 @@ namespace VP_Proekt
                 //int sliderCollidingX = (int)((leftPoint.X + (slider.width * 0.25)) - (Center.X));
 
                 //velocityX = (int)(Velocity * ((sliderCollidingX / (slider.width * 0.25))));
-                Random rand = new Random();
-                //Angle =  1 * 2 * (Math.PI);
+               
+                Angle =  Angle * 0.5 * (Math.PI);
                 //Console.WriteLine(Angle);
                 velocityY = -velocityY;
                 velocityX = (float)(Math.Cos(Angle) * Velocity);
@@ -73,14 +73,16 @@ namespace VP_Proekt
             }
             else if ((Center.X + RADIUS / 2) >= (rightPoint.X - (slider.width * 0.25)) && (Center.X + RADIUS / 2) <= (rightPoint.X) && (Center.Y + RADIUS / 2) >= (leftPoint.Y))
             {
+                Angle = Angle * 0.5 * (Math.PI);
                 velocityY = -velocityY;
                 velocityX = Math.Abs((float)(Math.Cos(Angle) * Velocity));
-
                 Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
             }
             else if ((Center.X + RADIUS / 2) <= (rightPoint.X - (slider.width * 0.25)) && (Center.X + RADIUS / 2) >= (leftPoint.X + (slider.width * 0.25)) && (Center.Y + RADIUS / 2) >= leftPoint.Y)
             {
+                Angle = Angle * 2 * (Math.PI);
                 velocityY = -velocityY;
+                velocityX = Math.Abs((float)(Math.Cos(Angle) * Velocity)); 
                 Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
             }
             

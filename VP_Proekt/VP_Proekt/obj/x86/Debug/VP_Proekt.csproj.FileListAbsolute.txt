@@ -53,3 +53,17 @@ C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonso
 C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Settings.resources
 D:\fax gabriel\Vizuelno Programiranje\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Settings.resources
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.exe
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.pdb
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\VP_Proekt.exe
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\VP_Proekt.pdb
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.dll
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\bin\Debug\Newtonsoft.Json.xml
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csprojResolveAssemblyReference.cache
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.GameScreen.resources
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.LevelSelectScreen.resources
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Properties.Resources.resources
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.Settings.resources
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.StartingScreen.resources
+C:\Users\david\Desktop\VP_Proekt\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Debug\VP_Proekt.csproj.GenerateResource.Cache
