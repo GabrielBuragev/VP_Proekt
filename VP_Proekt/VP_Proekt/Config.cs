@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using Newtonsoft.Json;
 using System.IO;
+using System.Runtime.Serialization;
 
 namespace VP_Proekt
 {
     [Serializable]
-    public class Config
+    public class Config  
     {
         public int width { get; set; }
         public int height { get; set; }
@@ -36,6 +37,7 @@ namespace VP_Proekt
         public static void serializeConfig(Config confToSerialize,string confFilePath)
         {
             JsonSerializer serializer = new JsonSerializer();
+            serializer.NullValueHandling = NullValueHandling.Ignore;
 
             using (StreamWriter sw = new StreamWriter(confFilePath))
             using (JsonWriter writer = new JsonTextWriter(sw))
@@ -61,6 +63,7 @@ namespace VP_Proekt
             }
             return tmp;
         }
+        
 
     }
 }

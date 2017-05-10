@@ -17,11 +17,12 @@ namespace VP_Proekt
             DIAMOND
         }
         public static int maxHeight = 200;
-
         public List<Brick> bricks { get; set; }
         public Slider slider { get; set; }
         public Ball ball { get; set; }
         public int lives = 3;
+        public int id { get; set; }
+        public String filePathName { get; set; }
         public Level() {
             bricks = new List<Brick>();
             slider = new Slider(200,Color.Black);
@@ -32,6 +33,13 @@ namespace VP_Proekt
             bricks = listBricks;
             slider = new Slider(200, Color.Black);
             ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
+        }
+        public Level(int id, string filePathName) {
+            this.bricks = null;
+            this.slider = null;
+            this.ball = null;
+            this.id = id;
+            this.filePathName = filePathName;
         }
         public void addBrick(Point start, int width, BrickType brType)
         {

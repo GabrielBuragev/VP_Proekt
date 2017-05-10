@@ -125,17 +125,15 @@ namespace VP_Proekt
         
         private void LoadMap()
         {
-            FileName = "..//..//..//levels/level_8.bb";
+            FileName = "..//..//..//levels/level_10.bb";
             try
             {
-                List<Brick> allBricks = new List<Brick>();
                 using (FileStream fileStream = new FileStream(FileName, FileMode.Open))
                 {
 
                     IFormatter formater = new BinaryFormatter();
-                    allBricks = (List<Brick>)formater.Deserialize(fileStream);
+                    lvl = (Level)formater.Deserialize(fileStream);
                 }
-                lvl.bricks = allBricks;
             }
             catch (Exception ex)
             {
@@ -148,7 +146,6 @@ namespace VP_Proekt
         private void generateMap()
         {
             string path = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
-            //Console.WriteLine(path);
             List<Brick> bricks = new List<Brick>();
             int width = 80;
             int rows = Level.maxHeight / Brick.height;
@@ -189,17 +186,17 @@ namespace VP_Proekt
                 }
             }
 
+            startupConfig.num_levels++;
             var FileName = "..//..//..//levels/level_"+startupConfig.num_levels+".bb";
             IFormatter serializeFormatter = new BinaryFormatter();
 
             using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
             {
                 IFormatter formatter = new BinaryFormatter();
-                formatter.Serialize(fileStream, bricks);
+                formatter.Serialize(fileStream, new Level(bricks));
             }
 
-            startupConfig.num_levels++;
-            startupConfig.levels.Add(new Level(bricks));
+            startupConfig.levels.Add(new Level(startupConfig.num_levels,FileName));
             Console.WriteLine(startupConfig.num_levels);
             Config.serializeConfig(startupConfig,confFilePath);
 
