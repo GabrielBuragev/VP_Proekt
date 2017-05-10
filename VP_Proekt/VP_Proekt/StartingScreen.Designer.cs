@@ -32,7 +32,6 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnAboutUs = new System.Windows.Forms.Button();
-            //this.pictureBox2 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,7 +47,8 @@
             // 
             // btnStart
             // 
-            this.btnStart.BackColor = System.Drawing.SystemColors.Menu;
+            this.btnStart.BackColor = System.Drawing.Color.DarkRed;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnStart.ForeColor = System.Drawing.Color.Black;
             this.btnStart.Location = new System.Drawing.Point(96, 288);
             this.btnStart.Name = "btnStart";
@@ -60,34 +60,28 @@
             // 
             // btnSettings
             // 
+            this.btnSettings.BackColor = System.Drawing.Color.DarkRed;
+            this.btnSettings.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSettings.ForeColor = System.Drawing.Color.Black;
             this.btnSettings.Location = new System.Drawing.Point(96, 331);
             this.btnSettings.Name = "btnSettings";
             this.btnSettings.Size = new System.Drawing.Size(116, 23);
             this.btnSettings.TabIndex = 2;
             this.btnSettings.Text = "Settings";
-            this.btnSettings.UseVisualStyleBackColor = true;
+            this.btnSettings.UseVisualStyleBackColor = false;
             this.btnSettings.Click += new System.EventHandler(this.btnSettings_Click);
             // 
             // btnAboutUs
             // 
+            this.btnAboutUs.BackColor = System.Drawing.Color.DarkRed;
+            this.btnAboutUs.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnAboutUs.Location = new System.Drawing.Point(96, 372);
             this.btnAboutUs.Name = "btnAboutUs";
             this.btnAboutUs.Size = new System.Drawing.Size(116, 23);
             this.btnAboutUs.TabIndex = 3;
             this.btnAboutUs.Text = "AboutUs";
-            this.btnAboutUs.UseVisualStyleBackColor = true;
+            this.btnAboutUs.UseVisualStyleBackColor = false;
             this.btnAboutUs.Click += new System.EventHandler(this.btnAboutUs_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::VP_Proekt.Properties.Resources.brickimg;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(305, 443);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // StartingScreen
             // 
