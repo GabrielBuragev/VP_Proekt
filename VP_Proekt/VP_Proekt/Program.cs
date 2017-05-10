@@ -15,7 +15,7 @@ namespace VP_Proekt
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new GameScreen());
+            Application.Run(new StartingScreen());
         }
     }
 }

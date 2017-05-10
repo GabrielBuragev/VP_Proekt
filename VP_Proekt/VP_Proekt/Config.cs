@@ -15,6 +15,7 @@ namespace VP_Proekt
         public int height { get; set; }
         public int num_levels { get; set; }
         public List<Level> levels;
+        [NonSerialized] public static string confFilePath = "..//..//..//config.json";
         public enum GameDifficulty
         {
             EASY,

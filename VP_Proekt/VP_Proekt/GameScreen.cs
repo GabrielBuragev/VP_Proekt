@@ -17,6 +17,7 @@ namespace VP_Proekt
     public partial class GameScreen : Form
     {
         Level lvl;
+        LevelSelectScreen lss;
         private string FileName;
         private float prevX = 0;
         private float prevY = 0;
@@ -28,17 +29,20 @@ namespace VP_Proekt
         private int height;
         private bool proveriDupka;
         public Config startupConfig;
-        string confFilePath = "..//..//..//config.json";
+        
         public static Size formSize;
-        public GameScreen()
+        public GameScreen(Level lvl,LevelSelectScreen lss)
         {
             
             InitializeComponent();
 
             formSize = this.getSize();
+            this.lvl = lvl;
+            this.lss = lss;
+            this.startupConfig = Config.deserializeConfig(Config.confFilePath);
+
             DoubleBuffered = true;
             firstStartForBall = true;
-            lvl = new Level();
             timer = new Timer();
             timer.Interval = 50;
             timer.Tick += new EventHandler(timer_Tick);
@@ -48,8 +52,6 @@ namespace VP_Proekt
             width = this.Width - (3 * leftX);
             height = this.Height - (int)(2.5 * topY);
             
-            startupConfig = Config.deserializeConfig(confFilePath);
-            LoadMap();
             
         }
 
@@ -93,7 +95,8 @@ namespace VP_Proekt
 
         private void button1_Click(object sender, EventArgs e)
         {
-            generateMap();
+            lss.showForm();
+            this.Hide();
         }
 
         private void GameScreen_MouseMove_1(object sender, MouseEventArgs e)
@@ -123,26 +126,6 @@ namespace VP_Proekt
             timer.Start();
         }
         
-        private void LoadMap()
-        {
-            FileName = "..//..//..//levels/level_10.bb";
-            try
-            {
-                using (FileStream fileStream = new FileStream(FileName, FileMode.Open))
-                {
-
-                    IFormatter formater = new BinaryFormatter();
-                    lvl = (Level)formater.Deserialize(fileStream);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not read file: " + FileName);
-                FileName = null;
-                return;
-            }
-            Invalidate(true);
-        }
         private void generateMap()
         {
             string path = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
@@ -198,7 +181,7 @@ namespace VP_Proekt
 
             startupConfig.levels.Add(new Level(startupConfig.num_levels,FileName));
             Console.WriteLine(startupConfig.num_levels);
-            Config.serializeConfig(startupConfig,confFilePath);
+            Config.serializeConfig(startupConfig,Config.confFilePath);
 
 
         }
