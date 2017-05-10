@@ -24,6 +24,9 @@ namespace VP_Proekt
         };
         public GameDifficulty selectedGameDifficulty;
 
+        /*
+         Config constructor
+         */
         public Config(int width = 800, int height = 600,int num_levels = 0, GameDifficulty GameDifficulty = GameDifficulty.EASY)
         {
             this.width = width;
@@ -36,6 +39,10 @@ namespace VP_Proekt
         {
             this.num_levels++;
         }
+
+        /*
+         Static function to serialize/save current settings into config.json file
+         */
         public static void serializeConfig(Config confToSerialize,string confFilePath)
         {
             JsonSerializer serializer = new JsonSerializer();
@@ -48,6 +55,10 @@ namespace VP_Proekt
             }
 
         }
+
+        /*
+         Static function to deserialize config.json file
+         */
         public static Config deserializeConfig(string confFilePath)
         {
 

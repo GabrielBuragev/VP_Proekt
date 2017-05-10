@@ -66,7 +66,9 @@ namespace VP_Proekt
                 //Angle =  1 * 2 * (Math.PI);
                 //Console.WriteLine(Angle);
                 velocityY = -velocityY;
-                    velocityX = -(float)(Math.Cos(Angle) * Velocity);
+                velocityX = (float)(Math.Cos(Angle) * Velocity);
+                if (velocityX > 0)
+                    velocityX = -velocityX;
                 Center = new Point((int)(Center.X + (velocityX)), (int)(Center.Y + (velocityY)));
             }
             else if ((Center.X + RADIUS / 2) >= (rightPoint.X - (slider.width * 0.25)) && (Center.X + RADIUS / 2) <= (rightPoint.X) && (Center.Y + RADIUS / 2) >= (leftPoint.Y))

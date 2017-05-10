@@ -23,18 +23,24 @@ namespace VP_Proekt
         public int lives = 3;
         public int id { get; set; }
         public String filePathName { get; set; }
-        public Level()
-        {
-            bricks = null;
-            slider = null;
-            ball = null;
-        }
+        /*
+         * Default constructor.
+         * Used only by the JSONDeserializator.
+         * It really has no other function
+         */
+        public Level(){}
+        /*
+         Constructor for creating a level with all the required data (Bricks,Ball,Slider)
+         */
         public Level(List<Brick> listBricks)
         {
             bricks = listBricks;
             slider = new Slider(200, Color.Black);
             ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
         }
+        /*
+         Custom constructor for serializing level into config.json file (null -> ignored by JSONFormatter)
+         */
         public Level(int id, string filePathName) {
             this.bricks = null;
             this.slider = null;
@@ -42,11 +48,17 @@ namespace VP_Proekt
             this.id = id;
             this.filePathName = filePathName;
         }
+        /*
+         * Add a brick to the level (used only when generating the maps) 
+         **/
         public void addBrick(Point start, int width, BrickType brType)
         {
             Brick br = new Brick(start, width, brType);
             bricks.Add(br);
         }
+        /*
+         * Draw the brick on the game screen 
+         **/
         public void DrawBricks(Graphics g) {
             if (!ball.isDead)
             {
@@ -70,11 +82,6 @@ namespace VP_Proekt
                     //ball.Center = new Point((int)(ball.Center.X + ball.velocityX), (int)(ball.Center.Y + ball.velocityY));
                 }
             }
-        }
-        //Temporary function
-        public void setBricks(List<Brick> bricks) {
-            
-            this.bricks = bricks;
         }
         public BrickType getBrickType(int index)
         {
