@@ -97,6 +97,7 @@ namespace VP_Proekt
         {
             lss.showForm();
             this.Hide();
+            timer.Stop();
         }
 
         private void GameScreen_MouseMove_1(object sender, MouseEventArgs e)

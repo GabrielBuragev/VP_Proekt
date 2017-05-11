@@ -100,7 +100,8 @@ namespace VP_Proekt
                 using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
                 {
                     IFormatter formatter = new BinaryFormatter();
-                    formatter.Serialize(fileStream, new Level(bricks, startupConfig));
+                    Level tmplvl = new Level(bricks, startupConfig);
+                    formatter.Serialize(fileStream, tmplvl);
                 }
 
                 startupConfig.levels.Add(new Level(startupConfig.num_levels, FileName));

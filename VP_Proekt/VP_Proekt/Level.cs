@@ -69,20 +69,66 @@ namespace VP_Proekt
                 br.Draw(g);
             }
         }
+        /*
+         * Check if the ball hits a brick in any direction
+         * **/
         public void BallColidingWithBrick()
         {
             for (int i = 0; i < bricks.Count; i++)
             {
                 Point xy = bricks[i].xy;
+                
                 if ((ball.Center.X) >= xy.X && (ball.Center.X) <= (xy.X + bricks[i].width)
-                    && (ball.Center.Y - Ball.RADIUS) <= xy.Y + Brick.height)
+                    && (
+                        ((ball.Center.Y - Ball.RADIUS) <= xy.Y + Brick.height) || 
+                        ((ball.Center.Y + Ball.RADIUS) <= xy.Y + Brick.height))
+                    )
                 {
+                    Console.WriteLine(intersects(ball, bricks[i]));
                     ball.velocityY = -ball.velocityY;
                     if(bricks[i].isCrushed())
                         bricks.Remove(bricks[i]);
+                    break;
                     //ball.Center = new Point((int)(ball.Center.X + ball.velocityX), (int)(ball.Center.Y + ball.velocityY));
                 }
+                else if (
+                        (
+                        (ball.Center.Y + Ball.RADIUS >= xy.Y && (ball.Center.Y + Ball.RADIUS <= xy.Y + Brick.height)) ||
+                        (ball.Center.Y - Ball.RADIUS >= xy.Y && (ball.Center.Y - Ball.RADIUS <= xy.Y + Brick.height))
+                    ) && (
+                        ball.Center.X + Ball.RADIUS >= xy.X && ball.Center.X - Ball.RADIUS <= (xy.X + bricks[i].width)
+                    ))
+                {
+                    Console.WriteLine(intersects(ball, bricks[i]));
+                    ball.velocityX = -ball.velocityX;
+                    if (bricks[i].isCrushed())
+                        bricks.Remove(bricks[i]);
+                    break;
+                }
             }
+        }
+        // clamp(value, min, max) - limits value to the range min..max
+        public float clamp(int value, int min, int max) {
+            int distanceLeft = Math.Abs(value - min);
+            int distanceRight = Math.Abs(value - max);
+            if (distanceLeft <= distanceRight)
+                return min;
+            else
+                return max;
+        }
+        public bool intersects(Ball circle,Brick rectangle)
+        {
+            // Find the closest point to the circle within the rectangle
+            float closestX = clamp(circle.Center.X, rectangle.xy.X, rectangle.xy.X + rectangle.width);
+            float closestY = clamp(circle.Center.Y, rectangle.xy.Y, rectangle.xy.Y + Brick.height);
+
+            // Calculate the distance between the circle's center and this closest point
+            float distanceX = circle.Center.X - closestX;
+            float distanceY = circle.Center.Y - closestY;
+
+            // If the distance is less than the circle's radius, an intersection occurs
+            float distanceSquared = (distanceX * distanceX) + (distanceY * distanceY);
+            return distanceSquared < (Ball.RADIUS * Ball.RADIUS);
         }
         public BrickType getBrickType(int index)
         {

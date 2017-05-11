@@ -21,22 +21,16 @@ namespace VP_Proekt
 
         public float velocityX { get; set; }
         public float velocityY { get; set; }
-
-  
-
-        //public bool IsColided { get; set; }
-
         public Ball(Point center, Color color)
         {
             Center = center;
             Color = color;
             //IsColided = false;
             Velocity = 20;
-            Random r = new Random();
-            Console.WriteLine(r.NextDouble());
-            Angle = r.NextDouble() * 2 * Math.PI;
-            velocityX = (float)(Math.Cos(Angle) * Velocity);
-            velocityY = (float)(Math.Sin(Angle) * Velocity);
+            //Random r = new Random();
+            //Angle = r.NextDouble() * 2 * Math.PI;
+            velocityX = 0;
+            velocityY = (float)Velocity;
         }
 
         public void Draw(Graphics g)
@@ -51,43 +45,38 @@ namespace VP_Proekt
             Point leftPoint = slider.start;
             Point rightPoint = new Point(slider.start.X + slider.width, slider.start.Y);
 
-            //if ((Center.X + RADIUS / 2) >= leftPoint.X && (Center.X + RADIUS / 2) <= rightPoint.X && (Center.Y + RADIUS /2) >= leftPoint.Y)
-            //{
-            //    velocityY = -velocityY;
-
-            //    Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
-            //}
-            if ((Center.X + RADIUS / 2) >= leftPoint.X && (Center.X + RADIUS / 2) <= (leftPoint.X + (slider.width* 0.25)) && (Center.Y + RADIUS / 2) >= leftPoint.Y)
+            /*
+             * Ball collided with slider on LEFT
+             * */
+            if ((Center.X + RADIUS / 2) >= leftPoint.X && (Center.X + RADIUS / 2) <= (leftPoint.X + (slider.width* 0.5)) && (Center.Y + RADIUS / 2) >= leftPoint.Y)
             {
-                //int sliderCollidingX = (int)((leftPoint.X + (slider.width * 0.25)) - (Center.X));
+                int sliderCollidingX = -(int)Math.Abs(((Center.X) - (leftPoint.X + (slider.width * 0.5))));
+                velocityX = (int)(Velocity * ((sliderCollidingX / (slider.width * 0.5))));
 
-                //velocityX = (int)(Velocity * ((sliderCollidingX / (slider.width * 0.25))));
-               
-                Angle =  Angle * 0.5 * (Math.PI);
-                //Console.WriteLine(Angle);
+                //Angle =  0.5 * (Math.PI);
+
                 velocityY = -velocityY;
-                velocityX = (float)(Math.Cos(Angle) * Velocity);
                 if (velocityX > 0)
                     velocityX = -velocityX;
+
                 Center = new Point((int)(Center.X + (velocityX)), (int)(Center.Y + (velocityY)));
             }
-            else if ((Center.X + RADIUS / 2) >= (rightPoint.X - (slider.width * 0.25)) && (Center.X + RADIUS / 2) <= (rightPoint.X) && (Center.Y + RADIUS / 2) >= (leftPoint.Y))
+
+            /*
+             * Ball collided with slider on RIGHT
+             * */
+            else if ((Center.X + RADIUS / 2) >= (rightPoint.X - (slider.width * 0.5)) && (Center.X + RADIUS / 2) <= (rightPoint.X) && (Center.Y + RADIUS / 2) >= (leftPoint.Y))
             {
-                Angle = Angle * 0.5 * (Math.PI);
+                int sliderCollidingX = (int)Math.Abs(((rightPoint.X - (slider.width * 0.5)) - (Center.X)));
+
+                //Angle = 0.5 * (Math.PI);
+
                 velocityY = -velocityY;
-                velocityX = Math.Abs((float)(Math.Cos(Angle) * Velocity));
-                Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
-            }
-            else if ((Center.X + RADIUS / 2) <= (rightPoint.X - (slider.width * 0.25)) && (Center.X + RADIUS / 2) >= (leftPoint.X + (slider.width * 0.25)) && (Center.Y + RADIUS / 2) >= leftPoint.Y)
-            {
-                Angle = Angle * 2 * (Math.PI);
-                velocityY = -velocityY;
-                velocityX = Math.Abs((float)(Math.Cos(Angle) * Velocity)); 
+                velocityX = (int)(Velocity * ((sliderCollidingX / (slider.width * 0.5))));
+
                 Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
             }
             
-            //double d = (Center.X - slider.start.X) * (Center.X - slider.start.X) + (Center.Y - slider.start.Y) * (Center.Y - slider.start.Y);
-            //return d <= (2 * RADIUS) * (2 * RADIUS);
         }
 
         public void Move(int left, int top, int width, int height)
