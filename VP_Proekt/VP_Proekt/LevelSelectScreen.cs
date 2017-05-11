@@ -60,7 +60,9 @@ namespace VP_Proekt
             {
                 using (FileStream fs = new FileStream(pathName, FileMode.Open))
                 {
-                    return (Level)formater.Deserialize(fs);
+                    Level tmp = (Level)formater.Deserialize(fs);
+                    Console.WriteLine(tmp.slider.start.ToString());
+                    return tmp;
                 }
             }
             catch (FileNotFoundException e) {

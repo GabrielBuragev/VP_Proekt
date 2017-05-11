@@ -32,10 +32,10 @@ namespace VP_Proekt
         /*
          Constructor for creating a level with all the required data (Bricks,Ball,Slider)
          */
-        public Level(List<Brick> listBricks)
+        public Level(List<Brick> listBricks,Config config)
         {
             bricks = listBricks;
-            slider = new Slider(200, Color.Black);
+            slider = new Slider(200, Color.Black, config.width, config.height);
             ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
         }
         /*
@@ -78,7 +78,8 @@ namespace VP_Proekt
                     && (ball.Center.Y - Ball.RADIUS) <= xy.Y + Brick.height)
                 {
                     ball.velocityY = -ball.velocityY;
-                    bricks.Remove(bricks[i]);
+                    if(bricks[i].isCrushed())
+                        bricks.Remove(bricks[i]);
                     //ball.Center = new Point((int)(ball.Center.X + ball.velocityX), (int)(ball.Center.Y + ball.velocityY));
                 }
             }
@@ -95,8 +96,9 @@ namespace VP_Proekt
                 return BrickType.NORMAL;
 
         }
-        public void resetComponents() {
-            slider = new Slider(200, Color.Black);
+        public void resetComponents(Config config) {
+
+            slider = new Slider(200, Color.Black, config.width, config.height);
             ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
         }
     }
