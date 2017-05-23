@@ -83,9 +83,6 @@ namespace VP_Proekt
         {
             e.Graphics.Clear(Color.White);
             lvl.DrawBricks(e.Graphics);
-           // Pen pen = new Pen(Color.Black, 3);
-           // e.Graphics.DrawRectangle(pen, leftX, topY, width, height);
-            //pen.Dispose();
             
         }
         public Size getSize()
