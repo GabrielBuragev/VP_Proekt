@@ -102,13 +102,14 @@ namespace VP_Proekt
                 //if ((xy.X > ball.Center.X || xy.X + brickWidth < ball.Center.X) && (xy.Y < ball.Center.Y && xy.Y + brickHeight >ball.Center.Y))
                 //    velocityX = -ball.velocityX;
 
-                if (ballX < xy.X || ballX > xy.X+ brickWidth)
+                if (ball.Center.X < xy.X || ball.Center.X > xy.X+ brickWidth && (ball.Center.Y >= xy.Y && ball.Center.Y <= xy.Y + brickHeight))
                     velocityX = -ball.velocityX;
-                if ((xy.Y > ball.Center.Y || xy.Y + brickHeight < ball.Center.Y) && (ball.Center.X >= xy.X && ball.Center.X <= xy.X + brickWidth))
+                if ((xy.Y > ball.Center.Y || xy.Y + brickHeight < ball.Center.Y) && (ball.Center.X > xy.X && ball.Center.X < xy.X + brickWidth))
                     velocityY = -ball.velocityY;
-                if ((xy.X > ball.Center.X || xy.X + brickWidth < ball.Center.X) && (xy.Y > ball.Center.Y || xy.Y + brickHeight < ball.Center.Y))
+                if ((ball.Center.X < xy.X || ball.Center.X > xy.X + brickWidth) && (xy.Y > ball.Center.Y || xy.Y + brickHeight < ball.Center.Y))
                 {
                     velocityY = -ball.velocityY;
+                    velocityX = -ball.velocityX;
                 }
                 int distanceX = Math.Abs(ballX - brickCenter.X);
                 int distanceY = Math.Abs(ballY - brickCenter.Y);
