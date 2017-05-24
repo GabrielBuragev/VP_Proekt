@@ -16,7 +16,7 @@ namespace VP_Proekt
 {
     public partial class GameScreen : Form
     {
-        Level lvl;
+        Level lvl;  
         LevelSelectScreen lss;
         private string FileName;
         private float prevX = 0;
@@ -29,18 +29,19 @@ namespace VP_Proekt
         private int height;
         private bool proveriDupka;
         public Config startupConfig;
+        private Graphics grap;
         
         public static Size formSize;
         public GameScreen(Level lvl,LevelSelectScreen lss)
         {
             
             InitializeComponent();
-
+            grap = this.CreateGraphics();
             formSize = this.getSize();
             this.lvl = lvl;
             this.lss = lss;
             this.startupConfig = Config.deserializeConfig(Config.confFilePath);
-
+           
             DoubleBuffered = true;
             firstStartForBall = true;
             timer = new Timer();
@@ -51,7 +52,7 @@ namespace VP_Proekt
             proveriDupka = false;
             width = this.Width - (3 * leftX);
             height = this.Height - (int)(2.5 * topY);
-            
+            this.Width = width + 20;
             
         }
 
@@ -61,16 +62,37 @@ namespace VP_Proekt
             {
                 if (firstStartForBall == false)
                 {
+                  
+                    if (lvl.bricks.Count == 0)
+                    {
+                        timer.Stop();
+                        if (MessageBox.Show("Честито, успешно го завршивте нивото бр." + lvl.id + " !", "Играта заврши", MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                        {
+                            lss.Show();
+                            this.Hide();
+                        }
+                    }
                     lvl.ball.Move(leftX, topY, width, height);
                     lvl.ball.IsColiding(lvl.slider);
                     lvl.BallColidingWithBrick();
                     //ballsDoc.CheckColisions();
+                   
                  }
             }
             else {
                 timer.Stop();
-                lvl.resetComponents(startupConfig);
+                if (!lvl.resetComponents(startupConfig))
+                {
+                    Invalidate(true);
+                    if (MessageBox.Show("Вие изгубивте!", "Играта заврши", MessageBoxButtons.OK) == System.Windows.Forms.DialogResult.OK)
+                    {
+                        lss.Show();
+                        this.Hide();
+                    }
+
+                }
                 firstStartForBall = true;
+
             }
             Invalidate(true);
         }
@@ -122,6 +144,17 @@ namespace VP_Proekt
         {
             firstStartForBall = false;
             timer.Start();
+        }
+
+        private void lblStatusZivot_Paint(object sender, PaintEventArgs e)
+        {
+           // lblStatusZivot.Text = "Животи: " + lvl.lives + ", преостанати коцки: " + lvl.bricks.Count;
+        }
+
+        private void toolStripStatusLabel1_Paint(object sender, PaintEventArgs e)
+        {
+           
+            toolStripStatusLabel1.Text = "Животи: " + lvl.lives + ", преостанати коцки: " + lvl.bricks.Count;
         }
         
         

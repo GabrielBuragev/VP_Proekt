@@ -36,7 +36,7 @@ namespace VP_Proekt
         {
             bricks = listBricks;
             slider = new Slider(200, Color.Black, config.width, config.height);
-            ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
+            ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 30), Color.Black);
         }
         /*
          Custom constructor for serializing level into config.json file (null -> ignored by JSONFormatter)
@@ -79,42 +79,55 @@ namespace VP_Proekt
             {
                 Point xy = bricks[i].xy;
                 int brickWidth = bricks[i].width;
-                Point brickCenter = new Point((xy.X + brickWidth / 2),(xy.Y + brickHeight/2));
-                
+                Point brickCenter = new Point((xy.X + brickWidth / 2), (xy.Y + brickHeight / 2));
+
 
                 int ballX = 0;
                 int ballY = 0;
                 float velocityX = ball.velocityX;
                 float velocityY = ball.velocityY;
 
-                if (brickCenter.Y >= ball.Center.Y) {
+                if (brickCenter.Y >= ball.Center.Y)
+                {
                     ballY = ball.Center.Y + Ball.RADIUS;
                 }
-                else if (brickCenter.Y < ball.Center.Y) {
+                else if (brickCenter.Y < ball.Center.Y)
+                {
                     ballY = ball.Center.Y - Ball.RADIUS;
                 }
-                if (brickCenter.X >= ball.Center.X) {
+                if (brickCenter.X >= ball.Center.X)
+                {
                     ballX = ball.Center.X + Ball.RADIUS;
                 }
-                else if (brickCenter.X < ball.Center.X) {
+                else if (brickCenter.X < ball.Center.X)
+                {
                     ballX = ball.Center.X - Ball.RADIUS;
                 }
                 //if ((xy.X > ball.Center.X || xy.X + brickWidth < ball.Center.X) && (xy.Y < ball.Center.Y && xy.Y + brickHeight >ball.Center.Y))
                 //    velocityX = -ball.velocityX;
 
-                if (ball.Center.X < xy.X || ball.Center.X > xy.X+ brickWidth && (ball.Center.Y >= xy.Y && ball.Center.Y <= xy.Y + brickHeight))
+                if (ball.Center.X < xy.X || ball.Center.X > xy.X + brickWidth && (ball.Center.Y >= xy.Y && ball.Center.Y <= xy.Y + brickHeight))
                     velocityX = -ball.velocityX;
                 if ((xy.Y > ball.Center.Y || xy.Y + brickHeight < ball.Center.Y) && (ball.Center.X > xy.X && ball.Center.X < xy.X + brickWidth))
                     velocityY = -ball.velocityY;
-                if ((ball.Center.X < xy.X || ball.Center.X > xy.X + brickWidth) && (xy.Y > ball.Center.Y || xy.Y + brickHeight < ball.Center.Y))
+                if (ball.Center.X < xy.X && ball.Center.Y > xy.Y + brickHeight)
                 {
-                    velocityY = -ball.velocityY;
-                    velocityX = -ball.velocityX;
+                    if (velocityX > 0 && velocityY < 0)
+                    {
+                        velocityX = -velocityX;
+                        velocityY = -velocityY;
+                    }
+                    else
+                    {
+                        velocityX = -velocityX;
+                    }
+
                 }
                 int distanceX = Math.Abs(ballX - brickCenter.X);
                 int distanceY = Math.Abs(ballY - brickCenter.Y);
-                
-                if(distanceX <= brickWidth/2 && distanceY <= brickHeight/2){
+
+                if (distanceX <= brickWidth / 2 && distanceY <= brickHeight / 2)
+                {
                     ball.velocityY = velocityY;
                     ball.velocityX = velocityX;
                     if (bricks[i].isCrushed())
@@ -122,9 +135,9 @@ namespace VP_Proekt
                     break;
                 }
 
-                
 
-                
+
+
             }
         }
         
@@ -140,10 +153,15 @@ namespace VP_Proekt
                 return BrickType.NORMAL;
 
         }
-        public void resetComponents(Config config) {
+        public bool resetComponents(Config config) {
+            lives--;
+            if (lives == 0)
+                return false;
 
-            slider = new Slider(200, Color.Black, config.width, config.height);
-            ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 23), Color.Black);
+                slider = new Slider(200, Color.Black, config.width, config.height);
+                ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 30), Color.Black);
+
+            return true;
         }
     }
 }

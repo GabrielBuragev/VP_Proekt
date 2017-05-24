@@ -48,6 +48,7 @@ namespace VP_Proekt
             pen.Dispose();
             brush.Dispose();
         }
+       
         public void changeColor()
         {
             if (lives == 1)
@@ -64,6 +65,8 @@ namespace VP_Proekt
             else
                 return false;
         }
+
+
    
     }
 }

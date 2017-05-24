@@ -45,7 +45,7 @@ namespace VP_Proekt
             if (sender is Button) {
                 Button btnClicked = (Button)sender;
                 Level lvl = deserializeLevel(btnClicked.Tag.ToString());
-                Console.WriteLine(lvl.ball.velocityY);
+                Console.WriteLine(lvl.id);
                 GameScreen gs = new GameScreen(lvl,this);
                 gs.Location = this.Location;
                 gs.StartPosition = FormStartPosition.Manual;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace VP_Proekt
 {
@@ -15,18 +16,26 @@ namespace VP_Proekt
         public static int height = 20; 
         public Color fillColor { get; set; }
         public Slider(int width,Color fillColor,int formWidth,int formHeight) {
+          
             this.width = width;
             this.fillColor = fillColor;
-
             Size formSize = new Size(formWidth,formHeight);
             int sliderX = (formSize.Width / 2) - (width / 2);
-            int sliderY = formSize.Height - height - 45;
+            int sliderY = formSize.Height - height - 75;
             start = new Point(sliderX,sliderY);
         }
-        public void Draw(Graphics g) {
+       /* public void Draw(Graphics g) {
             Brush brush = new SolidBrush(fillColor);
             g.FillRectangle(brush,start.X,start.Y,width,height);
             brush.Dispose();
+        }*/
+        public void Draw(Graphics g)
+        {
+            //Bitmap bit = new Bitmap(100, 100);
+            Image img = Bitmap.FromFile("slider.png");
+    
+            g.DrawImage(img, start.X, start.Y, 200, 35);
+
         }
         public void Move(float dx)
         {

@@ -101,6 +101,7 @@ namespace VP_Proekt
                 {
                     IFormatter formatter = new BinaryFormatter();
                     Level tmplvl = new Level(bricks, startupConfig);
+                    tmplvl.id = k + 1;
                     formatter.Serialize(fileStream, tmplvl);
                 }
 
