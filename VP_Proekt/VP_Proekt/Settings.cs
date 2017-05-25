@@ -30,7 +30,24 @@ namespace VP_Proekt
 
         private void Settings_Load(object sender, EventArgs e)
         {
+            if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.EASY) {
+                rbEasy.Checked = true;
+            }
+            else if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.MEDIUM)
+            {
+                rbMedium.Checked = true;
+            }
+            else if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.HARD)
+            {
+                rbHard.Checked = true;
+            }
 
+            if (settingConfig.width == 800 && settingConfig.height == 600) {
+                rbSmallSize.Checked = true;
+            }
+            else if (settingConfig.width == 1000 && settingConfig.height == 800) {
+                rbMediumSize.Checked = true;
+            }
         }
 
 
@@ -50,42 +67,30 @@ namespace VP_Proekt
             ss.Show();
         }
 
-        private void btnPomalo_Click(object sender, EventArgs e)
-        {
-            settingConfig.width = 800;
-            settingConfig.height = 600;
-        }
-
-        private void btnPogolema_Click(object sender, EventArgs e)
-        {
-            settingConfig.width = 1200;
-            settingConfig.height = 800;
-        }
 
         private void btnPromeni_Click(object sender, EventArgs e)
         {
-            if (cbDifficulty.SelectedIndex != -1)
+            if (rbEasy.Checked == true)
             {
-                if (cbDifficulty.SelectedIndex == 0)
-                {
-                    //Easy
-                    //settingConfig.selectedGameDifficulty == ?
-
-                }
-                else if (cbDifficulty.SelectedIndex == 1)
-                {
-                    //Medium
-                    //settingConfig.selectedGameDifficulty == ?
-                }
-                else if (cbDifficulty.SelectedIndex == 2)
-                {
-                    //Hard
-                    //settingConfig.selectedGameDifficulty == ?
-                }
-                Config.serializeConfig(settingConfig, Config.confFilePath);
-                hideForm();
-                ss.Show();
+                settingConfig.selectedGameDifficulty = Config.GameDifficulty.EASY;
             }
+            else if (rbMedium.Checked == true) {
+                settingConfig.selectedGameDifficulty = Config.GameDifficulty.MEDIUM;
+            }else if(rbHard.Checked == true){
+                settingConfig.selectedGameDifficulty = Config.GameDifficulty.HARD;
+            }
+
+            if (rbSmallSize.Checked == true) {
+                settingConfig.width = 800;
+                settingConfig.height = 600;
+            }
+            else if (rbMediumSize.Checked == true) {
+                settingConfig.width = 1000;
+                settingConfig.height = 800;
+            }
+            Config.serializeConfig(settingConfig, Config.confFilePath);
+            hideForm();
+            ss.Show();
         }
     }
 }

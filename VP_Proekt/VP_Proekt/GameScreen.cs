@@ -112,13 +112,6 @@ namespace VP_Proekt
             return new Size(this.Width, this.Height);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            lss.showForm();
-            this.Hide();
-            timer.Stop();
-        }
-
         private void GameScreen_MouseMove_1(object sender, MouseEventArgs e)
         {
             if (e.X > 0 && e.X <= 800 - lvl.slider.width)

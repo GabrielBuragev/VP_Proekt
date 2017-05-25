@@ -33,20 +33,21 @@ namespace VP_Proekt
             velocityY = (float)Velocity;
         }
 
-      /*  public void Draw(Graphics g)
-        {
-            Brush brush = new SolidBrush(Color);
-            g.FillEllipse(brush, Center.X - RADIUS, Center.Y - RADIUS, RADIUS * 2, RADIUS * 2);
-            brush.Dispose();
-        }*/
+          public void Draw(Graphics g)
+          {
+              Brush brush = new SolidBrush(Color);
+              g.FillEllipse(brush, Center.X - RADIUS, Center.Y - RADIUS, RADIUS * 2, RADIUS * 2);
+              //g.FillEllipse(new SolidBrush(Color.Red), Center.X, Center.Y, 5, 5);
+              brush.Dispose();
+          }
 
-        public void Draw(Graphics g)
-        {
-            //Bitmap bit = new Bitmap(100, 100);
-            Image img = Bitmap.FromFile("ball1.ico");
-            g.DrawImage(img, Center.X - RADIUS/2, Center.Y,30,30);
+        //public void Draw(Graphics g)
+        //{
+        //    //Bitmap bit = new Bitmap(100, 100);
+        //    Image img = Bitmap.FromFile("ball1.ico");
+        //    g.DrawImage(img, Center.X - RADIUS/2, Center.Y,40,40);
 
-        }
+        //}
         public void IsColiding(Slider slider)
         {
             Point leftPoint = slider.start;

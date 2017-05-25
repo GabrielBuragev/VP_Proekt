@@ -13,7 +13,7 @@ namespace VP_Proekt
         public Level.BrickType brickType;
         public Point xy { get; set; }
         public int width { get; set; }
-        public static int height = 20;
+        public static int height = 40;
         public Color brickColor;
         public int lives;
         public Brick(Point xy, int width, Level.BrickType brickType)
