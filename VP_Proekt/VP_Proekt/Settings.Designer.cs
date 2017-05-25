@@ -34,6 +34,8 @@
             this.btnPogolema = new System.Windows.Forms.Button();
             this.btnNazad = new System.Windows.Forms.Button();
             this.btnPromeni = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cbDifficulty = new System.Windows.Forms.CheckedListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -103,11 +105,36 @@
             this.btnPromeni.UseVisualStyleBackColor = false;
             this.btnPromeni.Click += new System.EventHandler(this.btnPromeni_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.label2.Location = new System.Drawing.Point(36, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Choose difficulty:";
+            // 
+            // cbDifficulty
+            // 
+            this.cbDifficulty.BackColor = System.Drawing.Color.DarkRed;
+            this.cbDifficulty.FormattingEnabled = true;
+            this.cbDifficulty.Items.AddRange(new object[] {
+            "Easy",
+            "Medium",
+            "Hard"});
+            this.cbDifficulty.Location = new System.Drawing.Point(39, 161);
+            this.cbDifficulty.Name = "cbDifficulty";
+            this.cbDifficulty.Size = new System.Drawing.Size(120, 49);
+            this.cbDifficulty.TabIndex = 10;
+            // 
             // Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.cbDifficulty);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPromeni);
             this.Controls.Add(this.btnNazad);
             this.Controls.Add(this.btnPogolema);
@@ -131,5 +158,7 @@
         private System.Windows.Forms.Button btnPogolema;
         private System.Windows.Forms.Button btnNazad;
         private System.Windows.Forms.Button btnPromeni;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckedListBox cbDifficulty;
     }
 }

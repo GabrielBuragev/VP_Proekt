@@ -11,6 +11,12 @@ namespace VP_Proekt
 {
     public partial class Settings : Form
     {
+        public enum Difficulty
+        {
+            EASY,
+            MEDIUM,
+            HARD
+        }
         Config settingConfig;
         StartingScreen ss;
         public static int Height;
@@ -58,9 +64,28 @@ namespace VP_Proekt
 
         private void btnPromeni_Click(object sender, EventArgs e)
         {
-            Config.serializeConfig(settingConfig, Config.confFilePath);
-            hideForm();
-            ss.Show();
+            if (cbDifficulty.SelectedIndex != -1)
+            {
+                if (cbDifficulty.SelectedIndex == 0)
+                {
+                    //Easy
+                    //settingConfig.selectedGameDifficulty == ?
+
+                }
+                else if (cbDifficulty.SelectedIndex == 1)
+                {
+                    //Medium
+                    //settingConfig.selectedGameDifficulty == ?
+                }
+                else if (cbDifficulty.SelectedIndex == 2)
+                {
+                    //Hard
+                    //settingConfig.selectedGameDifficulty == ?
+                }
+                Config.serializeConfig(settingConfig, Config.confFilePath);
+                hideForm();
+                ss.Show();
+            }
         }
     }
 }
