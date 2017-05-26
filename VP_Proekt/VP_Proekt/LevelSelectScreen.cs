@@ -44,7 +44,7 @@ namespace VP_Proekt
         {
             if (sender is Button) {
                 Button btnClicked = (Button)sender;
-                Level lvl = deserializeLevel(btnClicked.Tag.ToString());
+                Level lvl = Config.deserializeLevel(btnClicked.Tag.ToString());
                 Console.WriteLine(lvl.id);
                 GameScreen gs = new GameScreen(lvl,this);
                 gs.Location = this.Location;
@@ -55,22 +55,7 @@ namespace VP_Proekt
             }
         }
 
-        private Level deserializeLevel(string pathName) {
-            IFormatter formater = new BinaryFormatter();
-            try
-            {
-                using (FileStream fs = new FileStream(pathName, FileMode.Open))
-                {
-                    Level tmp = (Level)formater.Deserialize(fs);
-                    Console.WriteLine(tmp.slider.start.ToString());
-                    return tmp;
-                }
-            }
-            catch (FileNotFoundException e) {
-                Console.WriteLine(e.StackTrace);
-            }
-            return null;
-        }
+        
         
 
         private void btnBack_Click(object sender, EventArgs e)

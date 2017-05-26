@@ -89,7 +89,7 @@ namespace VP_Proekt
 
         public void Move(int left, int top, int width, int height)
         {
-            
+            Console.WriteLine(width);
             float nextX = Center.X + velocityX;
             float nextY = Center.Y + velocityY;
             if (nextY + RADIUS >= height)

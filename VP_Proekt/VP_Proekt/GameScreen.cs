@@ -50,9 +50,12 @@ namespace VP_Proekt
             leftX = 1;
             topY = 1;
             proveriDupka = false;
-            width = this.Width - (3 * leftX);
+            
+            this.Width = startupConfig.width + 18;
+            this.Height = startupConfig.height + 18;
+
+            width = startupConfig.width;
             height = this.Height - (int)(2.5 * topY);
-            this.Width = width + 20;
             
         }
 
@@ -114,7 +117,7 @@ namespace VP_Proekt
 
         private void GameScreen_MouseMove_1(object sender, MouseEventArgs e)
         {
-            if (e.X > 0 && e.X <= 800 - lvl.slider.width)
+            if (e.X > 0 && e.X <= width - lvl.slider.width)
             {
                 if (firstStartForBall)
                 {

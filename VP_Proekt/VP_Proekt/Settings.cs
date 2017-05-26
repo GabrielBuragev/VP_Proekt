@@ -6,6 +6,9 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace VP_Proekt
 {
@@ -45,7 +48,7 @@ namespace VP_Proekt
             if (settingConfig.width == 800 && settingConfig.height == 600) {
                 rbSmallSize.Checked = true;
             }
-            else if (settingConfig.width == 1000 && settingConfig.height == 800) {
+            else if (settingConfig.width == 900 && settingConfig.height == 700) {
                 rbMediumSize.Checked = true;
             }
         }
@@ -70,6 +73,9 @@ namespace VP_Proekt
 
         private void btnPromeni_Click(object sender, EventArgs e)
         {
+            int tmpWidth = settingConfig.width;
+            int tmpHeight = settingConfig.height;
+
             if (rbEasy.Checked == true)
             {
                 settingConfig.selectedGameDifficulty = Config.GameDifficulty.EASY;
@@ -85,11 +91,51 @@ namespace VP_Proekt
                 settingConfig.height = 600;
             }
             else if (rbMediumSize.Checked == true) {
-                settingConfig.width = 1000;
-                settingConfig.height = 800;
+                settingConfig.width = 900;
+                settingConfig.height = 700;
             }
+            
+
+            IFormatter serializeFormatter = new BinaryFormatter();
+            Console.WriteLine(String.Format("tmpWidth: {0} , confWidth: {1} ",tmpWidth,settingConfig.width));
+            if (tmpWidth != settingConfig.width && tmpHeight != settingConfig.height)
+            {
+                foreach (Level lvl in settingConfig.levels)
+                {
+                    Level tmp = Config.deserializeLevel(lvl.filePathName);
+                    tmp.formWidth = settingConfig.width;
+                    tmp.formHeight = settingConfig.height;
+
+                    int brickWidth = tmp.formWidth / 10;
+                   
+
+                    int rows = Level.maxHeight / Brick.height;
+                    int numberOfBricks = tmp.bricks.Count / rows;
+
+                    for (int i = 0; i < rows; i++) {
+
+                        for (int j = 0; j < numberOfBricks; j++)
+                        {
+                            tmp.bricks[i * numberOfBricks + j] = new Brick(new Point(j * brickWidth,tmp.bricks[i * numberOfBricks + j].xy.Y), brickWidth, tmp.bricks[i * numberOfBricks + j].brickType);
+                        }
+                    }
+                    
+
+                    using (FileStream fileStream = new FileStream(lvl.filePathName, FileMode.Create))
+                    {
+                        IFormatter formatter = new BinaryFormatter();
+                        Level tmplvl = new Level(tmp.bricks, settingConfig);
+                        
+                        tmplvl.id = tmp.id;
+                        formatter.Serialize(fileStream, tmplvl);
+                    }
+                }
+            }
+
             Config.serializeConfig(settingConfig, Config.confFilePath);
+
             hideForm();
+            ss.updateConfig(settingConfig);
             ss.Show();
         }
     }

@@ -5,6 +5,7 @@ using System.Text;
 using Newtonsoft.Json;
 using System.IO;
 using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace VP_Proekt
 {
@@ -75,6 +76,24 @@ namespace VP_Proekt
                 Config.serializeConfig(tmp, confFilePath);
             }
             return tmp;
+        }
+        public static Level deserializeLevel(string pathName)
+        {
+            IFormatter formater = new BinaryFormatter();
+            try
+            {
+                using (FileStream fs = new FileStream(pathName, FileMode.Open))
+                {
+                    Level tmp = (Level)formater.Deserialize(fs);
+                    Console.WriteLine(tmp.slider.start.ToString());
+                    return tmp;
+                }
+            }
+            catch (FileNotFoundException e)
+            {
+                Console.WriteLine(e.StackTrace);
+            }
+            return null;
         }
         
 

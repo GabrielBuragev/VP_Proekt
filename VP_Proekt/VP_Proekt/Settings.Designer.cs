@@ -38,8 +38,8 @@
             this.rbMedium = new System.Windows.Forms.RadioButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.rbMediumSize = new System.Windows.Forms.RadioButton();
             this.rbSmallSize = new System.Windows.Forms.RadioButton();
+            this.rbMediumSize = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -160,18 +160,6 @@
             this.panel2.Size = new System.Drawing.Size(114, 123);
             this.panel2.TabIndex = 16;
             // 
-            // rbMediumSize
-            // 
-            this.rbMediumSize.AutoSize = true;
-            this.rbMediumSize.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.rbMediumSize.Location = new System.Drawing.Point(3, 26);
-            this.rbMediumSize.Name = "rbMediumSize";
-            this.rbMediumSize.Size = new System.Drawing.Size(72, 17);
-            this.rbMediumSize.TabIndex = 12;
-            this.rbMediumSize.TabStop = true;
-            this.rbMediumSize.Text = "1000x800";
-            this.rbMediumSize.UseVisualStyleBackColor = true;
-            // 
             // rbSmallSize
             // 
             this.rbSmallSize.AutoSize = true;
@@ -183,6 +171,18 @@
             this.rbSmallSize.TabStop = true;
             this.rbSmallSize.Text = "800 x 600";
             this.rbSmallSize.UseVisualStyleBackColor = true;
+            // 
+            // rbMediumSize
+            // 
+            this.rbMediumSize.AutoSize = true;
+            this.rbMediumSize.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.rbMediumSize.Location = new System.Drawing.Point(3, 26);
+            this.rbMediumSize.Name = "rbMediumSize";
+            this.rbMediumSize.Size = new System.Drawing.Size(66, 17);
+            this.rbMediumSize.TabIndex = 12;
+            this.rbMediumSize.TabStop = true;
+            this.rbMediumSize.Text = "900x700";
+            this.rbMediumSize.UseVisualStyleBackColor = true;
             // 
             // Settings
             // 

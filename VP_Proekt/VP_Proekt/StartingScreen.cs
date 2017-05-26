@@ -14,7 +14,7 @@ namespace VP_Proekt
 {
     public partial class StartingScreen : Form
     {
-        Config startupConfig;
+        public Config startupConfig;
         public StartingScreen()
         {
             InitializeComponent();
@@ -53,7 +53,7 @@ namespace VP_Proekt
         {
             string path = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
             
-            int width = 80;
+            int width = startupConfig.width /   10;
             int rows = Level.maxHeight / Brick.height;
             int numberOfBricks = startupConfig.width / width;
             Random rand = new Random();
@@ -115,6 +115,10 @@ namespace VP_Proekt
         private void button1_Click(object sender, EventArgs e)
         {
             generateMap();
+        }
+        public void updateConfig(Config conf) {
+            this.startupConfig = conf;
+            Console.WriteLine(startupConfig.width + "  " + startupConfig.height);
         }
     }
 }
