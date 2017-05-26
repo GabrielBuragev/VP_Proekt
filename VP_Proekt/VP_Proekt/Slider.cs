@@ -24,7 +24,7 @@ namespace VP_Proekt
             int sliderY = formSize.Height - height - 75;
             start = new Point(sliderX,sliderY);
         }
-       /* public void Draw(Graphics g) {
+      /* public void Draw(Graphics g) {
             Brush brush = new SolidBrush(fillColor);
             g.FillRectangle(brush,start.X,start.Y,width,height);
             brush.Dispose();
@@ -34,7 +34,7 @@ namespace VP_Proekt
             //Bitmap bit = new Bitmap(100, 100);
             Image img = Bitmap.FromFile("slider.png");
     
-            g.DrawImage(img, start.X, start.Y, 200, 35);
+            g.DrawImage(img, start.X, start.Y, width, 35);
 
         }
         public void Move(float dx)

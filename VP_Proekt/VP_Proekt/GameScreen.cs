@@ -17,6 +17,7 @@ namespace VP_Proekt
     public partial class GameScreen : Form
     {
         Level lvl;  
+        public static int  dynamicHeigth = 25;
         LevelSelectScreen lss;
         private string FileName;
         private float prevX = 0;
@@ -48,7 +49,7 @@ namespace VP_Proekt
             timer.Interval = 50;
             timer.Tick += new EventHandler(timer_Tick);
             leftX = 1;
-            topY = 1;
+            topY = dynamicHeigth;
             proveriDupka = false;
             
             this.Width = startupConfig.width + 18;
@@ -152,7 +153,73 @@ namespace VP_Proekt
            
             toolStripStatusLabel1.Text = "Животи: " + lvl.lives + ", преостанати коцки: " + lvl.bricks.Count;
         }
-        
+
+        //Save File
+        private void saveFile()
+        {
+            if (FileName == null)
+            {
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "BrickBreaker file (*.bb)|*.bb";
+                saveFileDialog.Title = "Save BrickBreaker file";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    FileName = saveFileDialog.FileName;
+                }
+            }
+            if (FileName != null)
+            {
+                using (FileStream fileStream = new FileStream(FileName, FileMode.Create))
+                {
+                    IFormatter formatter = new BinaryFormatter();
+                    formatter.Serialize(fileStream, lvl);
+                }
+            }
+        }
+
+        // Open File
+        private void openFile()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "BrickBreaker file (*.bb)|*.bb";
+            openFileDialog.Title = "Save BrickBreaker file";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileName = openFileDialog.FileName;
+                try
+                {
+                    using (FileStream fileStream = new FileStream(FileName, FileMode.Open))
+                    {
+                        IFormatter formater = new BinaryFormatter();
+                        lvl = (Level)formater.Deserialize(fileStream);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not read file: " + FileName);
+                    FileName = null;
+                    return;
+                }
+                Invalidate(true);
+            }
+        }
+
+        private void openToolStripButton_Click(object sender, EventArgs e)
+        {
+            openFile();
+        }
+
+        private void saveToolStripButton_Click(object sender, EventArgs e)
+        {
+            saveFile();
+        }
+
+        private void tsbBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            lss.Show();
+        }
+
         
     }
 }

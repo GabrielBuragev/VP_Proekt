@@ -16,10 +16,13 @@ namespace VP_Proekt
     {
         Config startupConfig;
         StartingScreen ss;
+        Level lvl;
+        string FileName;
         public LevelSelectScreen(StartingScreen ss,Config startupConfig)
         {
             InitializeComponent();
             this.ss = ss;
+            lvl = new Level();
             this.startupConfig = startupConfig;
             // Dynamicly append the buttons according to the number of levels there are.
             for (int i = 1; i <= startupConfig.num_levels; i++)
@@ -73,10 +76,48 @@ namespace VP_Proekt
             this.Hide();
 
         }
-
+        // Open File
+        private void openFile()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "BrickBreaker file (*.bb)|*.bb";
+            openFileDialog.Title = "Save BrickBreaker file";
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                FileName = openFileDialog.FileName;
+                try
+                {
+                    using (FileStream fileStream = new FileStream(FileName, FileMode.Open))
+                    {
+                        IFormatter formater = new BinaryFormatter();
+                        lvl = (Level)formater.Deserialize(fileStream);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not read file: " + FileName);
+                    FileName = null;
+                    return;
+                }
+                Invalidate(true);
+            }
+        }
         private void FLLevels_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+
+
+            openFile();
+            GameScreen gs = new GameScreen(lvl, this);
+            gs.Location = this.Location;
+            gs.StartPosition = FormStartPosition.Manual;
+            gs.FormClosing += delegate { this.Close(); };
+            gs.Show();
+            this.Hide();
         }
 
     }

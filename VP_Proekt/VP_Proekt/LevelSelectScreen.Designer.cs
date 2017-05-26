@@ -31,6 +31,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.FLLevels = new System.Windows.Forms.FlowLayoutPanel();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnLoad = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,7 +50,7 @@
             this.FLLevels.BackgroundImage = global::VP_Proekt.Properties.Resources.brickbgimg;
             this.FLLevels.Location = new System.Drawing.Point(12, 12);
             this.FLLevels.Name = "FLLevels";
-            this.FLLevels.Size = new System.Drawing.Size(279, 215);
+            this.FLLevels.Size = new System.Drawing.Size(279, 343);
             this.FLLevels.TabIndex = 5;
             this.FLLevels.Paint += new System.Windows.Forms.PaintEventHandler(this.FLLevels_Paint);
             // 
@@ -66,11 +67,25 @@
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnLoad
+            // 
+            this.btnLoad.BackColor = System.Drawing.Color.DarkRed;
+            this.btnLoad.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnLoad.ForeColor = System.Drawing.Color.Black;
+            this.btnLoad.Location = new System.Drawing.Point(13, 361);
+            this.btnLoad.Name = "btnLoad";
+            this.btnLoad.Size = new System.Drawing.Size(279, 23);
+            this.btnLoad.TabIndex = 7;
+            this.btnLoad.Text = "Load Game";
+            this.btnLoad.UseVisualStyleBackColor = false;
+            this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
+            // 
             // LevelSelectScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
+            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.FLLevels);
             this.Controls.Add(this.pictureBox1);
@@ -86,5 +101,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel FLLevels;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnLoad;
     }
 }

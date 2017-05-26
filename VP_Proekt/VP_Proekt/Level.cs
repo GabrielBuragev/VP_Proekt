@@ -16,6 +16,7 @@ namespace VP_Proekt
             STONE,
             DIAMOND
         }
+        Config settingConfig;
         public static int maxHeight = 200;
         public List<Brick> bricks { get; set; }
         public Slider slider { get; set; }
@@ -37,8 +38,23 @@ namespace VP_Proekt
          */
         public Level(List<Brick> listBricks,Config config)
         {
+            settingConfig = config;
+            Console.WriteLine(settingConfig.selectedGameDifficulty);
+            if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.EASY)
+            {
+
+                slider = new Slider(250, Color.Black, config.width, config.height);
+            }
+            else if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.MEDIUM)
+            {
+                slider = new Slider(150, Color.Black, config.width, config.height);
+            }
+            else if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.HARD)
+            {
+                slider = new Slider(100, Color.Black, config.width, config.height);
+            }
             bricks = listBricks;
-            slider = new Slider(200, Color.Black, config.width, config.height);
+            
             ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 30), Color.Black);
             bricksMap = new Dictionary<Point, Brick>();
             foreach (Brick b in bricks) {
@@ -214,14 +230,6 @@ namespace VP_Proekt
                     }
 
                 }
-                
-
-
-
-               
-                    
-                
-
             }
             if(finalVelocityY != 0)
             ball.velocityY = finalVelocityY;
@@ -250,8 +258,19 @@ namespace VP_Proekt
             lives--;
             if (lives == 0)
                 return false;
-
-                slider = new Slider(200, Color.Black, config.width, config.height);
+            if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.EASY)
+            {
+                slider = new Slider(250, Color.Black, config.width, config.height);
+            }
+            else if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.MEDIUM)
+            {
+                slider = new Slider(150, Color.Black, config.width, config.height);
+            }
+            else if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.HARD)
+            {
+                slider = new Slider(100, Color.Black, config.width, config.height);
+            }
+                
                 ball = new Ball(new Point(slider.start.X + slider.width / 2, slider.start.Y - 30), Color.Black);
 
             return true;

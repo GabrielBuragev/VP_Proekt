@@ -88,7 +88,7 @@ namespace VP_Proekt
                         else if (random == 2)
                             brType = Level.BrickType.DIAMOND;
 
-                        bricks.Add(new Brick(new Point(j * width, i * Brick.height), width, brType));
+                        bricks.Add(new Brick(new Point(j * width, i * Brick.height + GameScreen.dynamicHeigth), width, brType));
 
                     }
                 }
