@@ -111,7 +111,7 @@ namespace VP_Proekt
                 int brickWidth = bricks[i].width;
                 Point brickCenter = new Point((xy.X + brickWidth / 2), (xy.Y + brickHeight / 2));
                 bool cornerMayBeKicked = false;
-                int cornerHit = 0;
+                int cornerHit = 0; 
                 
                 int ballX = 0;
                 int ballY = 0;
