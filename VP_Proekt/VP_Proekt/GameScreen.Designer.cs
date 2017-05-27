@@ -122,7 +122,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Name = "GameScreen";
-            this.Text = "Form1";
+            this.Text = "BrickBreaker";
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.GameScreen_MouseClick);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GameScreen_MouseMove_1);

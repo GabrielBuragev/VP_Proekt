@@ -32,7 +32,6 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnAboutUs = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,24 +83,11 @@
             this.btnAboutUs.UseVisualStyleBackColor = false;
             this.btnAboutUs.Click += new System.EventHandler(this.btnAboutUs_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.DarkRed;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Location = new System.Drawing.Point(96, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Generate Map";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // StartingScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnAboutUs);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnStart);
@@ -119,6 +105,5 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnAboutUs;
-        private System.Windows.Forms.Button button1;
     }
 }

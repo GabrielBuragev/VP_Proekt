@@ -1,0 +1,14 @@
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.csprojResolveAssemblyReference.cache
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.GameScreen.resources
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.LevelSelectScreen.resources
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.Properties.Resources.resources
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.Settings.resources
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.StartingScreen.resources
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.csproj.GenerateResource.Cache
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Release\VP_Proekt.exe
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Release\VP_Proekt.pdb
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Release\Newtonsoft.Json.dll
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Release\Newtonsoft.Json.pdb
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\bin\Release\Newtonsoft.Json.xml
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.exe
+C:\Users\Simon\Documents\GitHub\VP_Proekt\VP_Proekt\VP_Proekt\obj\x86\Release\VP_Proekt.pdb

@@ -20,15 +20,12 @@ namespace VP_Proekt
         public static int  dynamicHeigth = 25;
         LevelSelectScreen lss;
         private string FileName;
-        private float prevX = 0;
-        private float prevY = 0;
         private bool firstStartForBall;
         private Timer timer;
         private int leftX;
         private int topY;
         private int width;
         private int height;
-        private bool proveriDupka;
         public Config startupConfig;
         private Graphics grap;
         
@@ -50,7 +47,6 @@ namespace VP_Proekt
             timer.Tick += new EventHandler(timer_Tick);
             leftX = 1;
             topY = dynamicHeigth;
-            proveriDupka = false;
             
             this.Width = startupConfig.width + 18;
             this.Height = startupConfig.height + 18;

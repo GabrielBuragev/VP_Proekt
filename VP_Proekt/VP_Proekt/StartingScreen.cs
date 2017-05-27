@@ -112,10 +112,6 @@ namespace VP_Proekt
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            generateMap();
-        }
         public void updateConfig(Config conf) {
             this.startupConfig = conf;
             Console.WriteLine(startupConfig.width + "  " + startupConfig.height);

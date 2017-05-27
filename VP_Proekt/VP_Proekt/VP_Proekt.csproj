@@ -114,7 +114,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="brickimg.jpg" />
-    <Content Include="Pozadina1.jpg" />
     <Content Include="Resources\Pozadina2.jpg" />
     <None Include="Resources\Pozadina21.jpg" />
     <None Include="Resources\Pozadina1.jpg" />
