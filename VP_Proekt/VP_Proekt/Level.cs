@@ -39,7 +39,6 @@ namespace VP_Proekt
         public Level(List<Brick> listBricks,Config config)
         {
             settingConfig = config;
-            Console.WriteLine(settingConfig.selectedGameDifficulty);
             if (settingConfig.selectedGameDifficulty == Config.GameDifficulty.EASY)
             {
 
@@ -133,16 +132,13 @@ namespace VP_Proekt
                 {
                     ballX = ball.Center.X - Ball.RADIUS;
                 }
-                //if ((xy.X > ball.Center.X || xy.X + brickWidth < ball.Center.X) && (xy.Y < ball.Center.Y && xy.Y + brickHeight >ball.Center.Y))
-                //    velocityX = -ball.velocityX;
-
-
 
                 int distanceX = Math.Abs(ballX - brickCenter.X);
                 int distanceY = Math.Abs(ballY - brickCenter.Y);
-
-                if (distanceX <= brickWidth / 2 && distanceY <= brickHeight / 2)
+                
+                if (distanceX <= brickWidth/2 && distanceY <= brickHeight/2)
                 {
+                    Console.WriteLine(String.Format("dx:{0} , dy:{1}", distanceX, distanceY));
                     if ((ball.Center.X <= xy.X || ball.Center.X >= xy.X + brickWidth) && (ball.Center.Y >= xy.Y && ball.Center.Y <= xy.Y + brickHeight))
                     {
                         velocityX = -ball.velocityX;
@@ -199,27 +195,6 @@ namespace VP_Proekt
                         }
                             
                     }
-
-                    //If it hits a unhittable corner do this
-                    
-                    //if (cornerHit == 1 && !brickSurrounding.Contains(cornerHit))
-                    //{
-                            
-                    //}
-                    //else if (cornerHit == 2 && !brickSurrounding.Contains(cornerHit))
-                    //{
-
-                    //}
-                    //else if (cornerHit == 3)
-                    //{
-
-                    //}
-                    //else if (cornerHit == 4)
-                    //{
-
-                    //}
-                    
-
                     if (minDistX >= distanceX && minDistY >= distanceY)
                     {
                         finalVelocityY = velocityY;
@@ -231,10 +206,14 @@ namespace VP_Proekt
 
                 }
             }
-            if(finalVelocityY != 0)
-            ball.velocityY = finalVelocityY;
-            if(finalVelocityX != 0)
-            ball.velocityX = finalVelocityX;
+            if (finalVelocityY != 0)
+            {
+                ball.velocityY = finalVelocityY;
+            }
+            if (finalVelocityX != 0)
+            {
+                ball.velocityX = finalVelocityX;
+            }
             if (brickHit != null && brickHit.isCrushed())
             {
                 bricks.Remove(brickHit);

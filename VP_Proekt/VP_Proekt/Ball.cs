@@ -25,10 +25,7 @@ namespace VP_Proekt
         {
             Center = center;
             Color = color;
-            //IsColided = false;
-            Velocity = 20;
-            //Random r = new Random();
-            //Angle = r.NextDouble() * 2 * Math.PI;
+            Velocity = 15;
             velocityX = 0;
             velocityY = (float)Velocity;
         }
@@ -37,17 +34,9 @@ namespace VP_Proekt
           {
               Brush brush = new SolidBrush(Color);
               g.FillEllipse(brush, Center.X - RADIUS, Center.Y - RADIUS, RADIUS * 2, RADIUS * 2);
-              //g.FillEllipse(new SolidBrush(Color.Red), Center.X, Center.Y, 5, 5);
               brush.Dispose();
           }
 
-        //public void Draw(Graphics g)
-        //{
-        //    //Bitmap bit = new Bitmap(100, 100);
-        //    Image img = Bitmap.FromFile("ball1.ico");
-        //    g.DrawImage(img, Center.X - RADIUS/2, Center.Y,40,40);
-
-        //}
         public void IsColiding(Slider slider)
         {
             Point leftPoint = slider.start;
@@ -60,8 +49,6 @@ namespace VP_Proekt
             {
                 int sliderCollidingX = -(int)Math.Abs(((Center.X) - (leftPoint.X + (slider.width * 0.5))));
                 velocityX = (int)(Velocity * ((sliderCollidingX / (slider.width * 0.5))));
-
-                //Angle =  0.5 * (Math.PI);
 
                 velocityY = -velocityY;
                 if (velocityX > 0)
@@ -77,8 +64,6 @@ namespace VP_Proekt
             {
                 int sliderCollidingX = (int)Math.Abs(((rightPoint.X - (slider.width * 0.5)) - (Center.X)));
 
-                //Angle = 0.5 * (Math.PI);
-
                 velocityY = -velocityY;
                 velocityX = (int)(Velocity * ((sliderCollidingX / (slider.width * 0.5))));
 
@@ -89,7 +74,6 @@ namespace VP_Proekt
 
         public void Move(int left, int top, int width, int height)
         {
-            Console.WriteLine(width);
             float nextX = Center.X + velocityX;
             float nextY = Center.Y + velocityY;
             if (nextY + RADIUS >= height)
@@ -106,6 +90,7 @@ namespace VP_Proekt
             {
                 velocityY = -velocityY;
             }
+            Console.WriteLine(String.Format("VX : {0} , VY : {1} ", velocityX, velocityY));
             Center = new Point((int)(Center.X + velocityX), (int)(Center.Y + velocityY));
         }
 

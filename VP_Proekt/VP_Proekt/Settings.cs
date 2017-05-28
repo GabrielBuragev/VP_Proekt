@@ -97,9 +97,7 @@ namespace VP_Proekt
             
 
             IFormatter serializeFormatter = new BinaryFormatter();
-            Console.WriteLine(String.Format("tmpWidth: {0} , confWidth: {1} ",tmpWidth,settingConfig.width));
-            //if (tmpWidth != settingConfig.width && tmpHeight != settingConfig.height)
-            //{
+           
                 foreach (Level lvl in settingConfig.levels)
                 {
                     Level tmp = Config.deserializeLevel(lvl.filePathName);
@@ -130,7 +128,7 @@ namespace VP_Proekt
                         formatter.Serialize(fileStream, tmplvl);
                     }
                 }
-            //}
+           
 
             Config.serializeConfig(settingConfig, Config.confFilePath);
 

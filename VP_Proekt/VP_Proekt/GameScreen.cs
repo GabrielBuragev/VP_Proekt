@@ -32,7 +32,6 @@ namespace VP_Proekt
         public static Size formSize;
         public GameScreen(Level lvl,LevelSelectScreen lss)
         {
-            
             InitializeComponent();
             grap = this.CreateGraphics();
             formSize = this.getSize();
@@ -72,10 +71,11 @@ namespace VP_Proekt
                             this.Hide();
                         }
                     }
+                    
                     lvl.ball.Move(leftX, topY, width, height);
                     lvl.ball.IsColiding(lvl.slider);
                     lvl.BallColidingWithBrick();
-                    //ballsDoc.CheckColisions();
+                    Invalidate(true);
                    
                  }
             }
@@ -94,7 +94,7 @@ namespace VP_Proekt
                 firstStartForBall = true;
 
             }
-            Invalidate(true);
+            
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -139,10 +139,6 @@ namespace VP_Proekt
             timer.Start();
         }
 
-        private void lblStatusZivot_Paint(object sender, PaintEventArgs e)
-        {
-           // lblStatusZivot.Text = "Животи: " + lvl.lives + ", преостанати коцки: " + lvl.bricks.Count;
-        }
 
         private void toolStripStatusLabel1_Paint(object sender, PaintEventArgs e)
         {

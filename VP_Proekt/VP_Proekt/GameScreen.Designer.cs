@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GameScreen));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lblStatusZivot = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -44,19 +43,12 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lblStatusZivot,
             this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 539);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(784, 22);
             this.statusStrip1.TabIndex = 1;
             this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lblStatusZivot
-            // 
-            this.lblStatusZivot.Name = "lblStatusZivot";
-            this.lblStatusZivot.Size = new System.Drawing.Size(0, 17);
-            this.lblStatusZivot.Paint += new System.Windows.Forms.PaintEventHandler(this.lblStatusZivot_Paint);
             // 
             // toolStripStatusLabel1
             // 
@@ -138,7 +130,6 @@
         #endregion
 
         private System.Windows.Forms.StatusStrip statusStrip1;
-        private System.Windows.Forms.ToolStripStatusLabel lblStatusZivot;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton openToolStripButton;
