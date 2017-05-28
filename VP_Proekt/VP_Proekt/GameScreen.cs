@@ -75,7 +75,7 @@ namespace VP_Proekt
                     lvl.ball.Move(leftX, topY, width, height);
                     lvl.ball.IsColiding(lvl.slider);
                     lvl.BallColidingWithBrick();
-                    Invalidate(true);
+                    
                    
                  }
             }
@@ -94,6 +94,7 @@ namespace VP_Proekt
                 firstStartForBall = true;
 
             }
+            Invalidate(true);
             
         }
         private void Form1_Load(object sender, EventArgs e)
@@ -136,6 +137,7 @@ namespace VP_Proekt
         private void GameScreen_MouseClick(object sender, MouseEventArgs e)
         {
             firstStartForBall = false;
+            lvl.ball.velocityY = (float)-lvl.ball.Velocity;
             timer.Start();
         }
 

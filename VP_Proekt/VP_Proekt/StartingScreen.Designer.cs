@@ -32,7 +32,6 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnSettings = new System.Windows.Forms.Button();
             this.btnAboutUs = new System.Windows.Forms.Button();
-            this.btnGenerate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -84,25 +83,11 @@
             this.btnAboutUs.UseVisualStyleBackColor = false;
             this.btnAboutUs.Click += new System.EventHandler(this.btnAboutUs_Click);
             // 
-            // btnGenerate
-            // 
-            this.btnGenerate.BackColor = System.Drawing.Color.DarkRed;
-            this.btnGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnGenerate.ForeColor = System.Drawing.Color.Black;
-            this.btnGenerate.Location = new System.Drawing.Point(96, 12);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(116, 24);
-            this.btnGenerate.TabIndex = 4;
-            this.btnGenerate.Text = "GenerateMaps\r\n";
-            this.btnGenerate.UseVisualStyleBackColor = false;
-            this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
-            // 
             // StartingScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(304, 441);
-            this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.btnAboutUs);
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnStart);
@@ -120,6 +105,5 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnSettings;
         private System.Windows.Forms.Button btnAboutUs;
-        private System.Windows.Forms.Button btnGenerate;
     }
 }

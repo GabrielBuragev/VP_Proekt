@@ -117,9 +117,5 @@ namespace VP_Proekt
             Console.WriteLine(startupConfig.width + "  " + startupConfig.height);
         }
 
-        private void btnGenerate_Click(object sender, EventArgs e)
-        {
-            generateMap();
-        }
     }
 }
